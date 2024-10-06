@@ -1,10 +1,8 @@
-
-function App() {
- 
-
+import Router from './routes'
+const App = () => {
   return (
     <>
-     <h1 className="text-red-600">Hello</h1>
+      <Router />
     </>
   )
 }
