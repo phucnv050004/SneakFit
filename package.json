@@ -26,15 +26,27 @@
     "react-dom": "^18.3.1",
     "react-final-form": "^6.5.9",
     "react-hook-form": "^7.52.1",
+<<<<<<< HEAD
     "react-router-dom": "^6.24.0",
     "react-toastify": "^10.0.5",
     "validator": "^13.12.0",
+=======
+    "react-player": "^2.16.0",
+    "react-router-dom": "^6.25.1",
+    "react-slick": "^0.30.2",
+    "react-toastify": "^10.0.5",
+    "slick-carousel": "^1.8.1",
+    "tailwind-merge": "^2.2.2",
+    "vite-project": "file:",
+>>>>>>> 2c5f47de239574855e1ab1b31020e89be2a26a96
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20.14.11",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "@types/react-icons": "^3.0.0",
+    "@types/react-slick": "^0.23.13",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
