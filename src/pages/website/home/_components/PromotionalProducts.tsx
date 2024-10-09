@@ -88,38 +88,18 @@ const PromotionalProducts = () => {
 
   return (
     <div className="mx-auto max-w-[1900px] mt-[50px] lg:mt-[100px] mb-10 border border-gray-300 sm:border-red-500 md:border-blue-500 lg:border-green-500 sm:border-dashed lg:border-solid">
-      <div className="flex items-center justify-between space-x-8 bg-red-500 ">
-        {/* Button with animation */}
-        <button className="flex items-center">
-          <iframe
-            src="https://lottie.host/embed/58de357e-2aa4-4264-9846-8dd4d72f3249/8csrBXskgE.json"
-            className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-[120px] lg:h-[120px] mt-2"
-            allowFullScreen
-          />
-          <span className="ml-4 md:ml-6 lg:ml-8 mt-2 md:mt-4 lg:mt-6 font-medium text-xl md:text-3xl lg:text-4xl text-white">
-            Sản phẩm khuyến mãi
-          </span>
-        </button>
-        {/* Countdown Timer */}
-        <div className="flex space-x-4 bg-red-500 p-4 flex-wrap justify-center">
-          <Card className="text-center p-2 bg-white shadow-md" bordered={false}>
-            <h2 className="text-xl font-bold">00</h2>
-            <p className="text-sm">Ngày</p>
-          </Card>
-          <Card className="text-center p-2 bg-white shadow-md" bordered={false}>
-            <h2 className="text-xl font-bold">00</h2>
-            <p className="text-sm">Giờ</p>
-          </Card>
-          <Card className="text-center p-2 bg-white shadow-md" bordered={false}>
-            <h2 className="text-xl font-bold">00</h2>
-            <p className="text-sm">Phút</p>
-          </Card>
-          <Card className="text-center p-2 bg-white shadow-md" bordered={false}>
-            <h2 className="text-xl font-bold">00</h2>
-            <p className="text-sm">Giây</p>
-          </Card>
-        </div>
-      </div>
+     <div className="flex items-center justify-between space-x-8 bg-red-500 p-4">
+  <button className="flex flex-row items-center md:flex-row">
+    <iframe
+      src="https://lottie.host/embed/58de357e-2aa4-4264-9846-8dd4d72f3249/8csrBXskgE.json"
+      className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] lg:w-[100px] lg:h-[100px]"
+      allowFullScreen
+    ></iframe>
+    <span className="ml-2 sm:ml-4 font-medium text-sm sm:text-lg md:text-xl lg:text-3xl text-white">
+      Sản phẩm khuyến mãi
+    </span>
+  </button>
+</div>
       <div className="mx-auto px-4 lg:px-[75px]">
         <div className="sectionContent px-[50px]">
           <Slider {...settings} className=" py-4 ">

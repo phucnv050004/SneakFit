@@ -7,7 +7,7 @@ const ProductList = () => {
   return (
     <>
       <h2 className='text-center text-[25px] sm:text-[45px] mb-8 mt-10 md:mt-20 text-black'>Sản phẩm mới ra mắt</h2>
-      <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 items-center gap-8 mx-[100px] mb-4'>
+      <div className='grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 items-center gap-8 mx-[100px] mb-4 '>
         <div className='group overflow-hidden hover:shadow-lg rounded-lg pb-3 '>
           <Link to={`/detail`}>
             <div className='relative'>
@@ -26,7 +26,7 @@ const ProductList = () => {
           </Link>
 
           <div className='mx-2 text-center space-y-2 mt-3'>
-            <h5>Giày Adidas Forum Exhibit Mid 'Cream Pink' H01922</h5>
+            <h5>Giày Adidas Forum Exhibit</h5>
             <div className='flex sm:flex-row flex-col items-center justify-center gap-2'>
               <span className='text-[#FF0000] font-semibold'>890,000₫</span>
               <span className='text-[#878c8f] font-light line-through text-[13px]'>1,250,000₫</span>
@@ -56,7 +56,7 @@ const ProductList = () => {
             </span>
           </div>
           <div className='mx-2 text-center space-y-2 mt-3'>
-            <h5>Giày Adidas Forum Exhibit Mid 'Cream Pink' H01922</h5>
+            <h5>Giày Adidas Forum Exhibit</h5>
             <div className='flex sm:flex-row flex-col items-center justify-center gap-2'>
               <span className='text-[#FF0000] font-semibold'>890,000₫</span>
               <span className='text-[#878c8f] font-light line-through text-[13px]'>1,250,000₫</span>
@@ -85,7 +85,7 @@ const ProductList = () => {
             </span>
           </div>
           <div className='mx-2 text-center space-y-2 mt-3'>
-            <h5>Giày Adidas Forum Exhibit Mid 'Cream Pink' H01922</h5>
+            <h5>Giày Adidas Forum Exhibit</h5>
             <div className='flex sm:flex-row flex-col items-center justify-center gap-2'>
               <span className='text-[#FF0000] font-semibold'>890,000₫</span>
               <span className='text-[#878c8f] font-light line-through text-[13px]'>1,250,000₫</span>
@@ -114,7 +114,7 @@ const ProductList = () => {
             </span>
           </div>
           <div className='mx-2 text-center space-y-2 mt-3'>
-            <h5>Giày Adidas Forum Exhibit Mid 'Cream Pink' H01922</h5>
+            <h5>Giày Adidas Forum Exhibit</h5>
             <div className='flex sm:flex-row flex-col items-center justify-center gap-2'>
               <span className='text-[#FF0000] font-semibold'>890,000₫</span>
               <span className='text-[#878c8f] font-light line-through text-[13px]'>1,250,000₫</span>
@@ -143,7 +143,7 @@ const ProductList = () => {
             </span>
           </div>
           <div className='mx-2 text-center space-y-2 mt-3'>
-            <h5>Giày Adidas Forum Exhibit Mid 'Cream Pink' H01922</h5>
+            <h5>Giày Adidas Forum Exhibit</h5>
             <div className='flex sm:flex-row flex-col items-center justify-center gap-2'>
               <span className='text-[#FF0000] font-semibold'>890,000₫</span>
               <span className='text-[#878c8f] font-light line-through text-[13px]'>1,250,000₫</span>
@@ -172,7 +172,7 @@ const ProductList = () => {
             </span>
           </div>
           <div className='mx-2 text-center space-y-2 mt-3'>
-            <h5>Giày Adidas Forum Exhibit Mid 'Cream Pink' H01922</h5>
+            <h5>Giày Adidas Forum Exhibit</h5>
             <div className='flex sm:flex-row flex-col items-center justify-center gap-2'>
               <span className='text-[#FF0000] font-semibold'>890,000₫</span>
               <span className='text-[#878c8f] font-light line-through text-[13px]'>1,250,000₫</span>
@@ -201,7 +201,7 @@ const ProductList = () => {
             </span>
           </div>
           <div className='mx-2 text-center space-y-2 mt-3'>
-            <h5>Giày Adidas Forum Exhibit Mid 'Cream Pink' H01922</h5>
+            <h5>Giày Adidas Forum Exhibit</h5>
             <div className='flex sm:flex-row flex-col items-center justify-center gap-2'>
               <span className='text-[#FF0000] font-semibold'>890,000₫</span>
               <span className='text-[#878c8f] font-light line-through text-[13px]'>1,250,000₫</span>
@@ -230,7 +230,7 @@ const ProductList = () => {
             </span>
           </div>
           <div className='mx-2 text-center space-y-2 mt-3'>
-            <h5>Giày Adidas Forum Exhibit Mid 'Cream Pink' H01922</h5>
+            <h5>Giày Adidas Forum Exhibit</h5>
             <div className='flex sm:flex-row flex-col items-center justify-center gap-2'>
               <span className='text-[#FF0000] font-semibold'>890,000₫</span>
               <span className='text-[#878c8f] font-light line-through text-[13px]'>1,250,000₫</span>
@@ -259,7 +259,7 @@ const ProductList = () => {
             </span>
           </div>
           <div className='mx-2 text-center space-y-2 mt-3'>
-            <h5>Giày Adidas Forum Exhibit Mid 'Cream Pink' H01922</h5>
+            <h5>Giày Adidas Forum Exhibit</h5>
             <div className='flex sm:flex-row flex-col items-center justify-center gap-2'>
               <span className='text-[#FF0000] font-semibold'>890,000₫</span>
               <span className='text-[#878c8f] font-light line-through text-[13px]'>1,250,000₫</span>
@@ -288,7 +288,7 @@ const ProductList = () => {
             </span>
           </div>
           <div className='mx-2 text-center space-y-2 mt-3'>
-            <h5>Giày Adidas Forum Exhibit Mid 'Cream Pink' H01922</h5>
+            <h5>Giày Adidas Forum Exhibit</h5>
             <div className='flex sm:flex-row flex-col items-center justify-center gap-2'>
               <span className='text-[#FF0000] font-semibold'>890,000₫</span>
               <span className='text-[#878c8f] font-light line-through text-[13px]'>1,250,000₫</span>

@@ -47,9 +47,9 @@ const AppFooter = () => {
         </div>
 
         {/* Chính sách */}
-        <div className="col-span-1">
+        <div className="col-span-1 ">
           <h2 className="text-lg font-semibold">CHÍNH SÁCH</h2>
-          <ul className="mt-4 space-y-2">
+          <ul className="mt-4 space-y-2 -ml-8">
             <li>Hệ thống cửa hàng</li>
             <li>Giới thiệu</li>
             <li>Chính sách đổi trả</li>
