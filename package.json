@@ -10,12 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.4",
     "@ant-design/icons": "^5.4.0",
+    "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@hookform/resolvers": "^3.9.0",
-    "@mui/icons-material": "^5.15.20",
-    "@mui/material": "^5.15.20",
+    "@mui/icons-material": "^5.16.7",
+    "@mui/material": "^5.16.7",
     "@types/validator": "^13.12.0",
     "antd": "^5.19.3",
     "axios": "^1.7.2",
@@ -26,19 +26,14 @@
     "react-dom": "^18.3.1",
     "react-final-form": "^6.5.9",
     "react-hook-form": "^7.52.1",
-<<<<<<< HEAD
-    "react-router-dom": "^6.24.0",
-    "react-toastify": "^10.0.5",
-    "validator": "^13.12.0",
-=======
     "react-player": "^2.16.0",
     "react-router-dom": "^6.25.1",
     "react-slick": "^0.30.2",
     "react-toastify": "^10.0.5",
     "slick-carousel": "^1.8.1",
     "tailwind-merge": "^2.2.2",
+    "validator": "^13.12.0",
     "vite-project": "file:",
->>>>>>> 2c5f47de239574855e1ab1b31020e89be2a26a96
     "zod": "^3.23.8"
   },
   "devDependencies": {
