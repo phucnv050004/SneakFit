@@ -11,7 +11,7 @@ const { Footer } = Layout;
 
 const AppFooter = () => {
   return (
-    <Footer className="bg-gray-900 text-white py-10">
+    <Footer className="bg-gray-900 text-white py-10 px-4 ">
       <div className="container mx-auto grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
         {/* Đăng ký nhận tin */}
         <div className="col-span-1">

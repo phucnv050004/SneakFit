@@ -117,7 +117,7 @@ import {
     const onSearch: SearchProps['onSearch'] = (value, _e, info) => console.log(info?.source, value)
   
     return (
-      <div className='sticky bg-header bg-while z-50  w-full top-0'>
+      <div className='sticky bg-white z-50 w-full top-0'>
       {/* header */}
       <div
         className={`flex items-center justify-between bg-background shadow-md transition-all duration-500  `}
@@ -130,25 +130,25 @@ import {
                 alt='Logo'
               />
             </div>
-            <div className='hidden md:flex md:items-center space-x-8 mr-20 text-lg md:text-base md:mr-[5px] font-medium'>
-              <NavLink to={'#'} className='text-muted hover:text-muted-foreground'>
+            <div className='hidden md:flex md:items-center space-x-8 mr-20 text-xl md:text-base md:mr-[5px] font-medium'>
+              <NavLink to={'#'} className='text-muted hover:text-muted-foreground no-underline text-xl  '>
                 Trang chủ
               </NavLink>
               <Dropdown menu={{ items: menus }}>
-                <NavLink to={'#'} className='bg-white md:items-center md:flex md:justify-between '>
+                <NavLink to={'#'} className='bg-white md:items-center md:flex md:justify-between text-muted text-xl  no-underline '>
                   Sản phẩm <DownOutlined className='text-xs ' />
                 </NavLink>
               </Dropdown>
-              <NavLink to={'#'} className='text-muted hover:text-muted-foreground'>
+              <NavLink to={'#'} className='text-muted hover:text-muted-foreground no-underline text-xl  '>
                 Giới thiệu
               </NavLink>
-              <NavLink to={'#'} className='text-muted hover:text-muted-foreground'>
+              <NavLink to={'#'} className='text-muted hover:text-muted-foreground no-underline text-xl '>
                 Cẩm nang
               </NavLink>
-              <NavLink to={'#'} className='text-muted hover:text-muted-foreground'>
+              <NavLink to={'#'} className='text-muted hover:text-muted-foreground no-underline text-xl '>
                 Liên hệ
               </NavLink>
-              <NavLink to={'#'} className='text-muted hover:text-muted-foreground'>
+              <NavLink to={'#'} className='text-muted hover:text-muted-foreground no-underline text-xl '>
                 Thông báo
               </NavLink>
             </div>
@@ -220,7 +220,7 @@ import {
               <NavLink to={'#'} className='block  text-black ml-2 hover:text-yellow-600 mb-6 mt-4 '>
                 Landing page
               </NavLink>
-              <hr />
+             <hr />
               <span className='block  text-yellow-600 hover:text-muted-foreground mb-6 mt-4'>BẠN CẦN HỖ TRỢ ?</span>
               <span className='block  text-black hover:text-yellow-600 mb-6 mt-2'>
                 <PhoneOutlined /> 1900 0091
@@ -245,7 +245,7 @@ import {
             </Drawer>
           </nav>
         </div>
-        <hr className='border border-[#E0E2E7]' />
+        
       </div>
     )
   }
