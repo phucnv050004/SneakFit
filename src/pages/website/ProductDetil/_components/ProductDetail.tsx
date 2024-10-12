@@ -49,7 +49,7 @@ const ProductDetail = () => {
           {/* Hộp chứa thông tin sản phẩm (Chỉ hiển thị border trên màn hình lớn) */}
           <div className="w-full h-auto md:w-3/5 p-4 md:border md:rounded-lg md:shadow-lg bg-white">
             <h1 className="text-2xl font-bold mb-4">
-              Giày Adidas Forum Exhibit Mid 'Green White' H01921
+              Giày Adidas Forum Exhibit Mid 'Green White' H01922
             </h1>
             <p className="text-gray-500">
               Thương hiệu: <span className="font-semibold">Adidas</span>
