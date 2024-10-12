@@ -1,6 +1,6 @@
-import LayoutAdmin from "@/layouts/LayoutAdmin";
-import AdminAddProduct from "@/pages/admin/Add";
-import AdminProductList from "@/pages/admin/List";
+import LayoutAdmin from "@/pages/admin/LayoutAdmin";
+import AdminAddProduct from "@/pages/admin/product/Add";
+import AdminProductList from "@/pages/admin/product/List";
 import pageHome from "@/pages/website/home/page";
 import layoutWebsite from "@/pages/website/layout";
 import { useRoutes } from "react-router-dom";
