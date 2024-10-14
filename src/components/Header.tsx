@@ -135,7 +135,7 @@ import {
                 Trang chủ
               </NavLink>
             
-                <NavLink to={'#'} className='bg-white md:items-center md:flex md:justify-between text-muted text-xl  no-underline '>
+                <NavLink to={'/products'} className='bg-white md:items-center md:flex md:justify-between text-muted text-xl  no-underline '>
                   Sản phẩm 
                 </NavLink>
             
@@ -143,7 +143,7 @@ import {
                 Giới thiệu
               </NavLink>
               <NavLink to={'#'} className='text-muted hover:text-muted-foreground no-underline text-xl '>
-                Cẩm nang
+              Tin tức
               </NavLink>
               <NavLink to={'#'} className='text-muted hover:text-muted-foreground no-underline text-xl '>
                 Liên hệ
@@ -209,7 +209,7 @@ import {
                 Giới thiệu
               </NavLink>
               <NavLink to={'#'} className='block  text-black ml-2 hover:text-yellow-600 mb-6 mt-4 '>
-                Cẩm nang trang trí
+                Tin tức
               </NavLink>
               <NavLink to={'#'} className='block  text-black ml-2 hover:text-yellow-600 mb-6 mt-4 '>
                 Hệ thống cửa hàng
