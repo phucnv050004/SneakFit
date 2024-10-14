@@ -101,7 +101,7 @@ const PromotionalProducts = () => {
   </button>
 </div>
       <div className="mx-auto px-4 lg:px-[75px]">
-        <div className="sectionContent px-[50px]">
+        <div className="sectionContent px-2">
           <Slider {...settings} className=" py-4 ">
             {/* Item 1 */}
             <div className="item-category p-3 bg-white my-8   ">

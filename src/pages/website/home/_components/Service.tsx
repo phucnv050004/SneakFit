@@ -37,14 +37,14 @@ const Service = () => {
     alt=""
     className="w-full h-auto"
   />
-  <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50 px-4">
-    <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6">Sản phẩm tuyệt vời</h1>
+  <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50 px-2">
+    <h5 className="text-xl md:text-4xl font-bold mb-4 md:mb-6 ">Sản phẩm tuyệt vời</h5>
     <p className="text-base md:text-lg mb-4 md:mb-6 text-center">
       Đừng bỏ lỡ cơ hội sở hữu sản phẩm của chúng tôi
     </p>
     <a
       href="#mua-ngay"
-      className="bg-red-500 text-white px-4 py-2 md:px-6 md:py-3 rounded-full hover:bg-red-600 transition duration-300 no-underline text-sm md:text-base"
+      className="bg-red-500 text-white px-4 py-2 md:px-6 md:py-3  rounded-full hover:bg-red-600 transition duration-300 no-underline text-sm md:text-base"
     >
       Mua ngay
     </a>

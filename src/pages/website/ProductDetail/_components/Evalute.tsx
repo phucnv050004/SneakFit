@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Evaluate = () => {
   const [activeTab, setActiveTab] = useState("paymentPolicy");
@@ -38,7 +38,7 @@ const Evaluate = () => {
   return (
     <>
       {/* Tabs */}
-      <div className="container  mt-10 px-20 ">
+      <div className="container mt-10 px-20 mx-auto  ">
         <div className="mt-10 mb-10 w-full mr-10 p-4 border rounded-lg shadow-lg bg-white">
           <div className="flex border-b">
             <button

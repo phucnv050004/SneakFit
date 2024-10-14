@@ -1,11 +1,9 @@
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import React from "react";
 import Slider from "react-slick";
-import { any } from "zod";
 
 // Nút tùy chỉnh cho việc điều hướng Previous
 function PrevArrow(props: any) {
-  const { className, onClick } = props;
+  const { onClick } = props;
   return (
     <button
       className="absolute left-[-50px] top-1/2 transform -translate-y-1/2 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg w-10 h-10 flex justify-center items-center"
@@ -18,7 +16,7 @@ function PrevArrow(props: any) {
 
 // Nút tùy chỉnh cho việc điều hướng Next
 function NextArrow(props: any) {
-  const { className, onClick } = props;
+  const { onClick } = props;
   return (
     <button
       className="absolute right-[-50px] top-1/2 transform -translate-y-1/2 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg w-10 h-10 flex justify-center items-center"
@@ -65,6 +63,7 @@ export default function RelatedProduct() {
 
   return (
     <div className="container mx-auto px-20 relative ">
+      <h2 className="text-2xl font-bold mb-4">Sản phẩm khác</h2>
       <Slider {...settings}>
         <div className="border p-2 rounded-lg shadow-md w-full max-w-xs h-80 mb-10">
           <img

@@ -47,47 +47,47 @@ import {
       setOpen(false)
     }
   
-    const menus: MenuProps['items'] = [
-      {
-        key: 'sub1',
-        label: 'Sản phẩm mới',
-        children: [
-          { key: '1', label: 'Nội thất theo yêu cầu' },
-          { key: '2', label: 'Sản phẩm đặc biệt 2023' },
-          { key: '3', label: 'Trang trí bếp' }
-        ]
-      },
-      {
-        key: 'sub2',
-        label: 'Sản phẩm nổi bật',
-        children: [
-          { key: '4', label: 'Trang trí phòng khách' },
-          { key: '5', label: 'Trang trí phòng ngủ' },
-          { key: '6', label: 'Sân vườn thoải mái' }
-        ]
-      },
-      {
-        key: 'sub3',
-        label: 'Chương trình khuyến mãi',
-        children: [
-          { key: '7', label: 'Giảm giá mùa hè' },
-          { key: '8', label: 'Sale lớn lên tới 49%' }
-        ]
-      },
-      {
-        key: '9',
-        label: (
-          <div className='bg-accent text-accent-foreground p-4 rounded-lg'>
-            <h3 className='text-xl font-bold'>SPRING SALE</h3>
-            <p className='text-lg'>HÀNG HIỆU NGẬP TRÀN GIÁ NGÀN YÊU THƯƠNG</p>
-            <p className='text-2xl font-bold'>
-              Chỉ từ <span className='text-red-500'>99.000đ</span>
-            </p>
-            <p className='text-sm'>1-31.03 | Áp dụng hàng ngàn sản phẩm</p>
-          </div>
-        )
-      }
-    ]
+    // const menus: MenuProps['items'] = [
+    //   {
+    //     key: 'sub1',
+    //     label: 'Sản phẩm mới',
+    //     children: [
+    //       { key: '1', label: 'Nội thất theo yêu cầu' },
+    //       { key: '2', label: 'Sản phẩm đặc biệt 2023' },
+    //       { key: '3', label: 'Trang trí bếp' }
+    //     ]
+    //   },
+    //   {
+    //     key: 'sub2',
+    //     label: 'Sản phẩm nổi bật',
+    //     children: [
+    //       { key: '4', label: 'Trang trí phòng khách' },
+    //       { key: '5', label: 'Trang trí phòng ngủ' },
+    //       { key: '6', label: 'Sân vườn thoải mái' }
+    //     ]
+    //   },
+    //   {
+    //     key: 'sub3',
+    //     label: 'Chương trình khuyến mãi',
+    //     children: [
+    //       { key: '7', label: 'Giảm giá mùa hè' },
+    //       { key: '8', label: 'Sale lớn lên tới 49%' }
+    //     ]
+    //   },
+    //   {
+    //     key: '9',
+    //     label: (
+    //       <div className='bg-accent text-accent-foreground p-4 rounded-lg'>
+    //         <h3 className='text-xl font-bold'>SPRING SALE</h3>
+    //         <p className='text-lg'>HÀNG HIỆU NGẬP TRÀN GIÁ NGÀN YÊU THƯƠNG</p>
+    //         <p className='text-2xl font-bold'>
+    //           Chỉ từ <span className='text-red-500'>99.000đ</span>
+    //         </p>
+    //         <p className='text-sm'>1-31.03 | Áp dụng hàng ngàn sản phẩm</p>
+    //       </div>
+    //     )
+    //   }
+    // ]
     const users: MenuProps['items'] = [
       {
         label: <a href='#'>Tên người dùng</a>,
@@ -125,20 +125,20 @@ import {
           <nav className='flex items-center justify-between px-[4%] bg-background w-full   '>
             <div className=' md:w-[80%] md:h-[30%] sm:w-[50%] lg:w-[230px] w-[41%]  '>
               <img
-                src='src/assets/icon/logo.png'
+                src='src/assets/logo.png'
                 className='w-full md:w-[94%]  sm:w-1/2 lg:w-[80%] lg:h-[50%] md:h-[74px]  '
-                alt='Logo'
+                alt='đợi tí...'
               />
             </div>
             <div className='hidden md:flex md:items-center space-x-8 mr-20 text-xl md:text-base md:mr-[5px] font-medium'>
               <NavLink to={'#'} className='text-muted hover:text-muted-foreground no-underline text-xl  '>
                 Trang chủ
               </NavLink>
-              <Dropdown menu={{ items: menus }}>
+            
                 <NavLink to={'#'} className='bg-white md:items-center md:flex md:justify-between text-muted text-xl  no-underline '>
-                  Sản phẩm <DownOutlined className='text-xs ' />
+                  Sản phẩm 
                 </NavLink>
-              </Dropdown>
+            
               <NavLink to={'#'} className='text-muted hover:text-muted-foreground no-underline text-xl  '>
                 Giới thiệu
               </NavLink>
