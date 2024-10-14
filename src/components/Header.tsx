@@ -131,21 +131,17 @@ import {
               />
             </div>
             <div className='hidden md:flex md:items-center space-x-8 mr-20 text-xl md:text-base md:mr-[5px] font-medium'>
-              <NavLink to={'#'} className='text-muted hover:text-muted-foreground no-underline text-xl  '>
+              <NavLink to={'/'} className='text-muted hover:text-muted-foreground no-underline text-xl  '>
                 Trang chủ
               </NavLink>
             
                 <NavLink to={'/products'} className='bg-white md:items-center md:flex md:justify-between text-muted text-xl  no-underline '>
                   Sản phẩm 
                 </NavLink>
-            
-              <NavLink to={'#'} className='text-muted hover:text-muted-foreground no-underline text-xl  '>
-                Giới thiệu
-              </NavLink>
-              <NavLink to={'#'} className='text-muted hover:text-muted-foreground no-underline text-xl '>
+              <NavLink to={'/new'} className='text-muted hover:text-muted-foreground no-underline text-xl '>
               Tin tức
               </NavLink>
-              <NavLink to={'#'} className='text-muted hover:text-muted-foreground no-underline text-xl '>
+              <NavLink to={'/contact'} className='text-muted hover:text-muted-foreground no-underline text-xl '>
                 Liên hệ
               </NavLink>
               <NavLink to={'#'} className='text-muted hover:text-muted-foreground no-underline text-xl '>
@@ -195,7 +191,7 @@ import {
               <Button className='md:hidden' shape='circle' icon={<MenuOutlined />} onClick={showDrawer} />
             </div>
             <Drawer title='DANH MỤC' placement='right' onClose={onClose} open={visible} width={320}>
-              <NavLink to={'#'} className='block  text-black ml-2 hover:text-yellow-600 mb-6 mt-4 '>
+              <NavLink to={'/'} className='block  text-black ml-2 hover:text-yellow-600 mb-6 mt-4 '>
                 Trang chủ
               </NavLink>
               <div className='p-2  '>
@@ -205,10 +201,10 @@ import {
                   </span>
                 </Dropdown>
               </div>
-              <NavLink to={'#'} className='block  text-black ml-2 hover:text-yellow-600 mb-6 mt-4 '>
+              <NavLink to={''} className='block  text-black ml-2 hover:text-yellow-600 mb-6 mt-4 '>
                 Giới thiệu
               </NavLink>
-              <NavLink to={'#'} className='block  text-black ml-2 hover:text-yellow-600 mb-6 mt-4 '>
+              <NavLink to={'/contact'} className='block  text-black ml-2 hover:text-yellow-600 mb-6 mt-4 '>
                 Tin tức
               </NavLink>
               <NavLink to={'#'} className='block  text-black ml-2 hover:text-yellow-600 mb-6 mt-4 '>
