@@ -4,6 +4,7 @@ import AdminProductList from "@/pages/admin/product/List";
 import pageHome from "@/pages/website/home/page";
 import layoutWebsite from "@/pages/website/layout";
 import pageDetail from "@/pages/website/ProductDetail/page";
+import PageProductList from "@/pages/website/products/page";
 import { useRoutes } from "react-router-dom";
 
 const Router = () => {
@@ -14,6 +15,7 @@ const Router = () => {
       children: [
         { index: true, Component: pageHome },
         { path: "detail/:id", Component: pageDetail },
+        {path:"products",Component:PageProductList}
       ],
     },
 
