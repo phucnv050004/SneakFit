@@ -1,12 +1,15 @@
+import { ToastContainer } from "react-toastify";
+import Router from "./routes";
+
 
 function App() {
- 
 
   return (
     <>
-     <h1 className="text-red-600">Hello</h1>
+      <Router />
+      <ToastContainer />
     </>
   )
 }
 
-export default App
+export default App;
