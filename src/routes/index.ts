@@ -4,6 +4,7 @@ import AdminProductList from "@/pages/admin/product/List";
 import pageContact from "@/pages/website/contact/page";
 import pageHome from "@/pages/website/home/page";
 import layoutWebsite from "@/pages/website/layout";
+import pageNews from "@/pages/website/new/page";
 import pageDetail from "@/pages/website/ProductDetail/page";
 import PageProductList from "@/pages/website/products/page";
 import { useRoutes } from "react-router-dom";
@@ -18,6 +19,7 @@ const Router = () => {
         { path: "detail/:id", Component: pageDetail },
         {path:"products",Component:PageProductList},
         {path:"contact",Component:pageContact},
+        {path:"new",Component:pageNews},
       ],
     },
 

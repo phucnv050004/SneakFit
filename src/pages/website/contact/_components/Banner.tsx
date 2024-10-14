@@ -1,7 +1,25 @@
+import { Breadcrumb } from "antd";
+import { Link } from "react-router-dom";
 
+const breadcrumbItems = [
+  {
+    title: (
+      <Link className="text-black" to="/">
+        <p className="text-black">Trang chủ</p>
+      </Link>
+    ),
+  },
+  {
+    title: <p className="text-black">Liên hệ</p>,
+  },
+];
 const Banner = () => {
   return (
     <>
+       <Breadcrumb
+            items={breadcrumbItems}
+            className="text-black mt-[20px] ml-[2%] text-sm md:text-base lg:text-lg"
+          />
       <div className="container mx-auto max-w-[1900px] px-6 lg:px-[75px] mt-10 md:mt-20">
         <div className="line-banner-bottom flex flex-col lg:flex-row mb-8">
           <div className="col-banner media-banner flex-1 mb-4 lg:mb-0">
