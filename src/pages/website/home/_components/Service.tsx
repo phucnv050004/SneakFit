@@ -31,7 +31,7 @@ const Service = () => {
 
   return (
     <>
-   <div className="relative w-full overflow-hidden mb-5 mt-10 mx-auto max-w-[1900px]">
+   <div className="relative w-full overflow-hidden mb-5 mt-10 mx-auto max-w-[1850px]">
   <img
     src="https://file.hstatic.net/200000525917/file/banner-wd-desk_eb2d618082d64dd2b38af284e3a0a9ce_2048x2048.jpg"
     alt=""
