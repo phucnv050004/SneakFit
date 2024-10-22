@@ -49,7 +49,7 @@ const AppFooter = () => {
         {/* Chính sách */}
         <div className="col-span-1 ">
           <h2 className="text-lg font-semibold">CHÍNH SÁCH</h2>
-          <ul className="mt-4 space-y-2 -ml-8">
+          <ul className="mt-4 space-y-2 ">
             <li>Hệ thống cửa hàng</li>
             <li>Giới thiệu</li>
             <li>Chính sách đổi trả</li>
@@ -72,7 +72,7 @@ const AppFooter = () => {
       <div className="flex flex-col-reverse sm:flex-row justify-between items-center mt-10 border-t border-gray-700 pt-4">
         <div className="mt-4 sm:mt-0">
           <p className="text-center sm:text-left">
-            © Copyright 2024 By WD Shoes Scofield. Powered by Haravan
+            © Copyright 2024 By SneakFit
           </p>
         </div>
         <div className="flex space-x-4 justify-center sm:justify-end mt-4 sm:mt-0">
