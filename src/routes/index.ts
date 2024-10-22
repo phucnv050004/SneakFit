@@ -1,6 +1,7 @@
 import LayoutAdmin from "@/pages/admin/LayoutAdmin";
 import AdminAddProduct from "@/pages/admin/product/Add";
 import AdminProductList from "@/pages/admin/product/List";
+import pageCart from "@/pages/website/Cart/page";
 import pageContact from "@/pages/website/contact/page";
 import pageHome from "@/pages/website/home/page";
 import layoutWebsite from "@/pages/website/layout";
@@ -16,6 +17,7 @@ const Router = () => {
       Component: layoutWebsite,
       children: [
         { index: true, Component: pageHome },
+        { path: "cart", Component: pageCart },
         { path: "detail/:id", Component: pageDetail },
         {path:"products",Component:PageProductList},
         {path:"contact",Component:pageContact},
