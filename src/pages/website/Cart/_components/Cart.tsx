@@ -90,7 +90,9 @@ const CartPage = () => {
                 {/* Phần thông tin đơn hàng (tỷ lệ 4/12) */}
                 <div className=" h-auto p-4 md:border md:rounded-lg md:shadow-lg bg-white">
                   <div className="order-info bg-gray-100 p-4 rounded-lg shadow-md">
-                    <h3 className="text-xl font-bold mb-4">Thông tin đơn hàng</h3>
+                    <h3 className="text-xl font-bold mb-4">
+                      Thông tin đơn hàng
+                    </h3>
                     <p className="text-lg mb-2">
                       Tổng tiền:{" "}
                       <span className="font-semibold text-red-500">
@@ -105,9 +107,9 @@ const CartPage = () => {
                       className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
                       placeholder="Ghi chú đơn hàng"
                     ></textarea>
-                    <Link to={"/bill"}
+                    <Link
+                      to={"/bill"}
                       className="bg-black text-white w-full py-3 rounded-lg hover:bg-gray-800"
-                      
                     >
                       THANH TOÁN NGAY
                     </Link>
