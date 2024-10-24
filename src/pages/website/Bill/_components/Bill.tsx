@@ -30,7 +30,7 @@ const BillPage = () => {
     },
   ]);
 
-  // Thông tin khách hàng mặc định (có thể để trống nếu cần)
+  // Thông tin khách hàng
   const [billingDetails, setBillingDetails] = useState({
     fullName: "",
     address: "",
