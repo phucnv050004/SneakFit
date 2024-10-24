@@ -1,6 +1,7 @@
 import LayoutAdmin from "@/pages/admin/LayoutAdmin";
 import AdminAddProduct from "@/pages/admin/product/Add";
 import AdminProductList from "@/pages/admin/product/List";
+import pageBill from "@/pages/website/Bill/pageBill";
 import pageCart from "@/pages/website/Cart/page";
 import pageContact from "@/pages/website/contact/page";
 import pageHome from "@/pages/website/home/page";
@@ -22,6 +23,7 @@ const Router = () => {
         {path:"products",Component:PageProductList},
         {path:"contact",Component:pageContact},
         {path:"new",Component:pageNews},
+        {path:"bill",Component:pageBill}
       ],
     },
 

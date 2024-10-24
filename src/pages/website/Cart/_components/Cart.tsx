@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import pageBill from "../../Bill/pageBill";
 
 const CartPage = () => {
   // Giả lập dữ liệu giỏ hàng
@@ -37,9 +39,9 @@ const CartPage = () => {
   };
 
   // Xử lý sự kiện khi thanh toán
-  const handleCheckout = () => {
-    alert("Thanh toán thành công!");
-  };
+  // const handleCheckout = () => {
+  //   alert("Thanh toán thành công!");
+  // };
 
   return (
     <>
@@ -103,12 +105,12 @@ const CartPage = () => {
                       className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
                       placeholder="Ghi chú đơn hàng"
                     ></textarea>
-                    <button
+                    <Link to={"/bill"}
                       className="bg-black text-white w-full py-3 rounded-lg hover:bg-gray-800"
-                      onClick={handleCheckout}
+                      
                     >
                       THANH TOÁN NGAY
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
