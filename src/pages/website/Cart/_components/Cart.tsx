@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import pageBill from "../../Bill/pageBill";
 
 const CartPage = () => {
-  // Giả lập dữ liệu giỏ hàng
   const [cart, setCart] = useState([
     {
       id: 1,
@@ -23,7 +22,6 @@ const CartPage = () => {
 
   const [totalAmount, setTotalAmount] = useState(0);
 
-  // Tính tổng tiền khi giỏ hàng thay đổi
   useEffect(() => {
     const total = cart.reduce(
       (acc, item) => acc + item.price * item.quantity,
@@ -32,40 +30,54 @@ const CartPage = () => {
     setTotalAmount(total);
   }, [cart]);
 
-  // Xóa sản phẩm khỏi giỏ hàng
   const handleRemoveItem = (id: any) => {
     const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);
   };
+  const handleIncreaseQuantity = (id: any) => {
+    const updatedCart = cart.map((item) => {
+      if (item.id === id) {
+        return { ...item, quantity: item.quantity + 1 };
+      }
+      return item;
+    });
+    setCart(updatedCart);
+  };
 
-  // Xử lý sự kiện khi thanh toán
-  // const handleCheckout = () => {
-  //   alert("Thanh toán thành công!");
-  // };
+  const handleDecreaseQuantity = (id:any) => {
+    const updatedCart = cart.map((item) => {
+      if (item.id === id && item.quantity > 1) {
+        return { ...item, quantity: item.quantity - 1 };
+      }
+      return item;
+    });
+    setCart(updatedCart);
+  };
 
   return (
     <>
-      <h1 className="text-5xl font-bold mt-4 text-center">Giỏ hàng</h1>
-      <div className="container mx-auto mt-2 px-4 md:px-20">
+      <h1 className="text-3xl md:text-5xl font-bold mt-4 text-center">
+        Giỏ hàng
+      </h1>
+      <div className="container mx-auto mt-4 px-4 md:px-20">
         <div className="flex flex-col md:flex-row gap-6 md:gap-20">
           {cart.length > 0 ? (
-            // Box chứa cả giỏ hàng và thông tin đơn hàng
-            <div className="w-full  bg-white p-8  rounded-lg">
-              <div className="flex  ">
-                {/* Phần giỏ hàng (tỷ lệ 8/12) */}
-                <div className="w-8/12 mr-5  pr-4 w-full h-auto p-4 md:border md:rounded-lg md:shadow-lg bg-white">
+            <div className="w-full bg-white p-4 md:p-8 rounded-lg md:border md:rounded-lg md:shadow-lg bg-white">
+              <div className="flex flex-col md:flex-row">
+                {/* Phần giỏ hàng (linh hoạt với tỷ lệ màn hình) */}
+                <div className="w-full md:w-8/12 pr-4 mb-6 md:mb-0">
                   <div className="cart-items space-y-4">
                     {cart.map((item) => (
                       <div
                         key={item.id}
-                        className="cart-item flex justify-between items-center bg-gray-50 p-4 shadow-sm rounded-lg"
+                        className="cart-item flex flex-col md:flex-row items-center justify-between bg-gray-50 p-4 shadow-sm rounded-lg"
                       >
                         <img
                           src={item.image}
                           alt={item.title}
                           className="w-24 h-24 object-cover"
                         />
-                        <div className="flex-1 ml-4">
+                        <div className="flex-1 text-center md:text-left mt-2 md:mt-0 md:ml-4">
                           <h4 className="text-lg font-semibold">
                             {item.title}
                           </h4>
@@ -73,11 +85,26 @@ const CartPage = () => {
                             Số lượng: {item.quantity}
                           </p>
                           <p className="text-red-500 font-semibold">
-                            {item.price.toLocaleString()} VND
+                            {item.price.toLocaleString()} ₫
                           </p>
+                          <div className="flex items-center justify-center md:justify-start mt-2">
+                            <button
+                              className="px-2 py-1 bg-gray-300 rounded-md hover:bg-gray-400"
+                              onClick={() => handleDecreaseQuantity(item.id)}
+                            >
+                              -
+                            </button>
+                            <span className="mx-4">{item.quantity}</span>
+                            <button
+                              className="px-2 py-1 bg-gray-300 rounded-md hover:bg-gray-400"
+                              onClick={() => handleIncreaseQuantity(item.id)}
+                            >
+                              +
+                            </button>
+                        </div>
                         </div>
                         <button
-                          className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+                          className="mt-4 md:mt-0 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
                           onClick={() => handleRemoveItem(item.id)}
                         >
                           Xóa
@@ -87,8 +114,8 @@ const CartPage = () => {
                   </div>
                 </div>
 
-                {/* Phần thông tin đơn hàng (tỷ lệ 4/12) */}
-                <div className=" h-auto p-4 md:border md:rounded-lg md:shadow-lg bg-white">
+                {/* Phần thông tin đơn hàng */}
+                <div className="w-full md:w-4/12 h-auto p-4 md:border md:rounded-lg md:shadow-lg bg-white">
                   <div className="order-info bg-gray-100 p-4 rounded-lg shadow-md">
                     <h3 className="text-xl font-bold mb-4">
                       Thông tin đơn hàng
@@ -96,7 +123,7 @@ const CartPage = () => {
                     <p className="text-lg mb-2">
                       Tổng tiền:{" "}
                       <span className="font-semibold text-red-500">
-                        {totalAmount.toLocaleString()} VND
+                        {totalAmount.toLocaleString()} ₫
                       </span>
                     </p>
                     <label className="flex items-center mb-4">
@@ -109,7 +136,7 @@ const CartPage = () => {
                     ></textarea>
                     <Link
                       to={"/bill"}
-                      className="bg-black text-white w-full py-3 rounded-lg hover:bg-gray-800"
+                      className="block text-center bg-black text-white w-full py-3 rounded-lg hover:bg-gray-800"
                     >
                       THANH TOÁN NGAY
                     </Link>
@@ -118,11 +145,11 @@ const CartPage = () => {
               </div>
             </div>
           ) : (
-            <p>
+            <p className="text-center">
               Giỏ hàng của bạn đang trống. Mời bạn mua thêm sản phẩm{" "}
-              <a href="/" className="text-blue-500 underline">
+              <Link to="/" className="text-blue-500 underline">
                 tại đây
-              </a>
+              </Link>
               .
             </p>
           )}

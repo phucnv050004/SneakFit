@@ -77,8 +77,8 @@ export default function ProductViewed() {
             <h3 className="text-sm font-semibold">
               Giày Adidas Forum Exhibit Mid 'Cream Pink' H01922
             </h3>
-            <p className="text-red-500 text-lg font-bold">3,900,000₫</p>
-            <p className="text-gray-500 text-sm line-through">4,500,000₫</p>
+            <p className="text-red-500 text-lg font-bold">3,900,000 ₫</p>
+            <p className="text-gray-500 text-sm line-through">4,500,000 ₫</p>
           </div>
           <div className="border  p-2 rounded-lg shadow-md w-full max-w-xs h-80 mb-10">
             <img
@@ -89,7 +89,7 @@ export default function ProductViewed() {
             <h3 className="text-sm font-semibold">
               Giày Adidas Forum Exhibit Mid 'Green White' H01921
             </h3>
-            <p className="text-red-500 text-lg font-bold">390,000,000₫</p>
+            <p className="text-red-500 text-lg font-bold">390,000,000 ₫</p>
           </div>
           <div className="border  p-2 rounded-lg shadow-md w-full max-w-xs h-80 mb-10">
             <img
@@ -100,7 +100,7 @@ export default function ProductViewed() {
             <h3 className="text-sm font-semibold">
               Giày Adidas Forum Exhibit Mid 'White Halo Mint' GZ5388
             </h3>
-            <p className="text-red-500 text-lg font-bold">390,000,000₫</p>
+            <p className="text-red-500 text-lg font-bold">390,000,000 ₫</p>
           </div>
           <div className="border   p-2 rounded-lg shadow-md w-full max-w-xs h-80 mb-10">
             <img
@@ -111,7 +111,7 @@ export default function ProductViewed() {
             <h3 className="text-sm font-semibold">
               Giày Adidas Forum Exhibit Mid GW8921
             </h3>
-            <p className="text-red-500 text-lg font-bold">590,000,000₫</p>
+            <p className="text-red-500 text-lg font-bold">590,000,000 ₫</p>
           </div>
           <div className="border  p-2 rounded-lg shadow-md w-full max-w-xs h-80 mb-10">
             <img
@@ -122,7 +122,7 @@ export default function ProductViewed() {
             <h3 className="text-sm font-semibold">
               Giày Adidas Forum High 'Xiangi' H04236
             </h3>
-            <p className="text-red-500 text-lg font-bold">2,900,000₫</p>
+            <p className="text-red-500 text-lg font-bold">2,900,000 ₫</p>
           </div>
         </Slider>
       </div>
