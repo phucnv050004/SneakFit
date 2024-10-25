@@ -18,14 +18,14 @@ const BillPage = () => {
       title: "Sản phẩm A",
       price: 100000,
       quantity: 2,
-      image: "https://via.placeholder.com/100",
+      image: "https://picsum.photos/200/300",
     },
     {
       id: 2,
       title: "Sản phẩm B",
       price: 200000,
       quantity: 1,
-      image: "https://via.placeholder.com/100",
+      image: "https://picsum.photos/200/300",
     },
   ]);
 
@@ -83,8 +83,8 @@ const BillPage = () => {
   return (
     <div className="container mx-auto mt-10 px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mb-10">
-        <div className="border border-gray-300 rounded-lg p-6 bg-white shadow-lg">
-          <h4 className="text-lg font-bold mb-4 text-center">
+        <div className="border border-gray-300 rounded-lg p-6 bg-white shadow-lg overflow-x-auto  ">
+          <h4 className="text-lg font-bold mb-4 text-center  ">
             Thông Tin Khách Hàng
           </h4>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -142,12 +142,12 @@ const BillPage = () => {
           </form>
         </div>
 
-        <div className="border border-gray-300 rounded-lg p-6 bg-white shadow-lg w-max mx-auto">
+        <div className="border border-gray-300 rounded-lg p-6 bg-white shadow-lg w-full overflow-x-auto">
           <h4 className="text-lg font-bold mb-4 text-center">
             Chi Tiết Đơn Hàng
           </h4>
-          <div className="p-4 bg-gray-50 rounded-md shadow w-max">
-            <table className="w-full text-sm">
+          
+            <table className=" w-full text-sm">
               <thead>
                 <tr className="text-left bg-gray-200">
                   <th className="py-2 px-3">Hình Ảnh</th>
@@ -211,7 +211,7 @@ const BillPage = () => {
             </button>
           </div>
         </div>
-      </div>
+      
     </div>
   );
 };
