@@ -139,7 +139,7 @@ const AdminProductList = () => {
                 </Link>
                 <Stack
                     width={300}
-                    sx={{ marginLeft: "750px", marginBottom: "30px" }}
+                    sx={{ marginLeft: "auto", marginBottom: "30px" }}
                 >
                     <TextField
                         id="standard-basic"

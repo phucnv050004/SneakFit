@@ -11,7 +11,7 @@ import {
   
   import { Button, Divider, Drawer, Dropdown, GetProps, Input, MenuProps, Space, theme } from 'antd'
   
-  import React, { useState } from 'react'
+  import React, { useEffect, useState } from 'react'
   import { NavLink } from 'react-router-dom'
   
   const { useToken } = theme
@@ -31,6 +31,7 @@ import {
         label: <span className='text-muted-foreground'>Chương trình khuyến mãi</span>
       }
     ]
+    const [user, setUser] = useState(null)
   
     const [visible, setVisible] = useState(false)
     const [open, setOpen] = useState(false)
@@ -46,7 +47,14 @@ import {
       setVisible(false)
       setOpen(false)
     }
-  
+   
+    useEffect(() => {
+      const storedUser = localStorage.getItem('user')
+      if (storedUser) {
+        const parsedUser = JSON.parse(storedUser)
+        setUser(parsedUser?.data?.res?.username || null)
+      }
+    }, []);
     // const menus: MenuProps['items'] = [
     //   {
     //     key: 'sub1',
@@ -88,23 +96,16 @@ import {
     //     )
     //   }
     // ]
-    const users: MenuProps['items'] = [
-      {
-        label: <a href='#'>Tên người dùng</a>,
-        key: '0'
-      },
-      {
-        label: <a href='#'>Đơn hàng</a>,
-        key: '1'
-      },
-      {
-        type: 'divider'
-      },
-      {
-        label: <a href='#'>Đăng xuất</a>,
-        key: '3'
-      }
-    ]
+    const users: MenuProps['items'] =  [
+          {
+            label: <NavLink to='/register'>Đăng ký</NavLink>,
+            key: '1'
+          },
+          {
+            label: <NavLink to='/login'>Đăng nhập</NavLink>,
+            key: '2'
+          }
+        ]
     const { token } = useToken()
   
     const contentStyle: React.CSSProperties = {

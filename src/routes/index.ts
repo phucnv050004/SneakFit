@@ -1,5 +1,6 @@
-import LayoutAdmin from "@/pages/admin/LayoutAdmin";
+ import LayoutAdmin from "@/pages/admin/LayoutAdmin";
 import AdminAddProduct from "@/pages/admin/product/Add";
+import AdminEditProduct from "@/pages/admin/product/Edit";
 import AdminProductList from "@/pages/admin/product/List";
 import Login from "@/pages/website/auth/Login";
 import Register from "@/pages/website/auth/Register";
@@ -37,6 +38,7 @@ const Router = () => {
       children: [
         { path: "/admin", Component: AdminProductList },
         { path: "/admin/product/add", Component: AdminAddProduct },
+        { path: "/admin/product/edit/:id", Component: AdminEditProduct },
       ],
     },
 

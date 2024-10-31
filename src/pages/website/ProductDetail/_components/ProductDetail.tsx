@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import { TProduct } from "@/interfaces/TProduct";
+import axios from "axios";
+import  { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
   const [selectedSize, setSelectedSize] = useState<number>(40); // Lựa chọn kích cỡ mặc định
   const [quantity, setQuantity] = useState<number>(1); // Số lượng sản phẩm
+  const [product, setProduct] = useState<TProduct | null>(null);
 
   // Hàm để thay đổi kích cỡ
   const handleSizeChange = (size: number) => {
@@ -17,7 +21,15 @@ const ProductDetail = () => {
       setQuantity(quantity - 1);
     }
   };
-
+  const { id } = useParams();
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/products/${id}`);
+      setProduct(data);
+      console.log(data);
+    };
+    fetchProduct();
+  }, []);
   return (
     <>
       <div className="container mx-auto mt-10 px-4 md:px-20">
@@ -25,11 +37,11 @@ const ProductDetail = () => {
           {/* Hộp chứa hình ảnh sản phẩm (Chỉ hiển thị border trên màn hình lớn) */}
           <div className="w-full md:w-2/5 p-4 md:border md:rounded-lg md:shadow-lg bg-white">
             <img
-              src="https://product.hstatic.net/200000525917/product/ipad_adidas-forum-exhibit-mid-fo_c13e8d752dda4eb096915727bb1242ce_8b5844d0c5154a49a2a89544492d2b75_grande.jpg"
+              src={product?.image}
               alt="Giày Adidas Forum Exhibit"
               className="w-full h-auto rounded-md"
             />
-            <div className="flex gap-2 mt-4">
+            {/* <div className="flex gap-2 mt-4">
               <img
                 src="https://product.hstatic.net/200000525917/product/s-l1600_bbd77165290f4f3b9534ae61d3aec45f_20f0515abf154132b4603398c5a5ebcb_grande.jpg"
                 alt="Thumbnail 1"
@@ -40,7 +52,7 @@ const ProductDetail = () => {
                 alt="Thumbnail 2"
                 className="w-16 h-16 object-cover border rounded-md"
               />
-            </div>
+            </div> */}
           </div>
 
           {/* Dấu gạch ngang ngăn cách (hiển thị trên mobile) */}
@@ -49,12 +61,12 @@ const ProductDetail = () => {
           {/* Hộp chứa thông tin sản phẩm (Chỉ hiển thị border trên màn hình lớn) */}
           <div className="w-full h-auto md:w-3/5 p-4 md:border md:rounded-lg md:shadow-lg bg-white">
             <h1 className="text-2xl font-bold mb-4">
-              Giày Adidas Forum Exhibit Mid 'Green White' H01922
+              {product?.title}
             </h1>
             <p className="text-gray-500">
               Thương hiệu: <span className="font-semibold">Adidas</span>
             </p>
-            <p className="text-red-500 text-xl font-bold my-2">390,000,000₫</p>
+            <p className="text-red-500 text-xl font-bold my-2">{product?.price}$</p>
 
             <div className="mb-4">
               <span className="text-gray-700">Màu sắc: Green White</span>
