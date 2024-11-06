@@ -55,7 +55,7 @@ const ProductList = () => {
 
               <div className="mx-2 text-center space-y-2 mt-3">
                 <h5 className="text-[14px] md:text-[16px] lg:text-[18px] font-medium">
-                  {product.title}
+                  {product.title.substring(0, 25)}...
                 </h5>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
                   <span className="text-[#FF0000] font-semibold">
