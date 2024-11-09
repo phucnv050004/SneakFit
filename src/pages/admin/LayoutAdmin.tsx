@@ -5,6 +5,7 @@ import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
     ProductOutlined,
+    ReadOutlined,
     ShoppingCartOutlined,
     UserOutlined,
 } from "@ant-design/icons";
@@ -59,20 +60,26 @@ const LayoutAdmin: React.FC = () => {
                             {
                                 key: "1",
                                 icon: <ProductOutlined />,
-                                label: "Quản lí sản phẩm",
+                                label: <NavLink to="/admin">Quản lí sản phẩm</NavLink>,
+                                
                             },
                             {
                                 key: "2",
                                 icon: <UserOutlined />,
-                                label: "Quản lí tài khoản",
+                                label: <NavLink to="/admin/auth">Quản lí tài khoản</NavLink>,
                             },
                             {
                                 key: "3",
                                 icon: <ShoppingCartOutlined />,
-                                label: "Quản lí đơn hàng",
+                                label: <NavLink to="/admin/orders">Quản lí đơn hàng</NavLink>,
                             },
                             {
-                                key: "4",
+                                key:"4",
+                                icon:<ReadOutlined />,
+                                label:<NavLink to="/admin/news">Quản lí tin tức</NavLink>,
+                            },
+                            {
+                                key: "5",
                                 icon: <LogoutOutlined />,
                                 label: <NavLink to="/">Thoát</NavLink>,
                             },

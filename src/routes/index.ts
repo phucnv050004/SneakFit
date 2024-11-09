@@ -1,4 +1,7 @@
- import LayoutAdmin from "@/pages/admin/LayoutAdmin";
+import LayoutAdmin from "@/pages/admin/LayoutAdmin";
+import AdminAddNews from "@/pages/admin/News/add";
+import AdminEditNews from "@/pages/admin/News/edit";
+import AdminNewsList from "@/pages/admin/News/List";
 import AdminAddProduct from "@/pages/admin/product/Add";
 import AdminEditProduct from "@/pages/admin/product/Edit";
 import AdminProductList from "@/pages/admin/product/List";
@@ -23,12 +26,12 @@ const Router = () => {
         { index: true, Component: pageHome },
         { path: "cart", Component: pageCart },
         { path: "detail/:id", Component: pageDetail },
-        {path:"products",Component:PageProductList},
-        {path:"contact",Component:pageContact},
-        {path:"new",Component:pageNews},
-        {path:"bill",Component:pageBill},
-        { path: 'login', Component: Login },
-        { path: 'register', Component: Register },
+        { path: "products", Component: PageProductList },
+        { path: "contact", Component: pageContact },
+        { path: "new", Component: pageNews },
+        { path: "bill", Component: pageBill },
+        { path: "login", Component: Login },
+        { path: "register", Component: Register },
       ],
     },
 
@@ -39,6 +42,10 @@ const Router = () => {
         { path: "/admin", Component: AdminProductList },
         { path: "/admin/product/add", Component: AdminAddProduct },
         { path: "/admin/product/edit/:id", Component: AdminEditProduct },
+        { path: "/admin/news", Component: AdminNewsList },
+        { path: "/admin/news/add", Component: AdminAddNews },
+        { path: "/admin/news/edit/:id", Component: AdminEditNews },
+
       ],
     },
 
