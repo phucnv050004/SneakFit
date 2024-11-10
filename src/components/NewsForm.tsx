@@ -68,17 +68,7 @@ const NewsForm: React.FC<NewsFormProps> = ({ onSubmit, initialValues }) => {
           )}
         />
 
-        {/* Switch Xuất bản */}
-        <Controller
-          name="isPublished"
-          control={control}
-          render={({ field }) => (
-            <FormControlLabel
-              control={<Switch {...field} checked={field.value} />}
-              label="Publish"
-            />
-          )}
-        />
+        
 
         {/* Nút Submit */}
         <Button type="submit" variant="contained" color="primary">
