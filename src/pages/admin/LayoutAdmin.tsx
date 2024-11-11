@@ -17,15 +17,14 @@ const LayoutAdmin: React.FC = () => {
   const { Header, Sider, Content } = Layout;
   const navigate = useNavigate();
   const userJson = localStorage.getItem("user");
-  // const role = userJson ? JSON.parse(userJson)?.user.role : null;
+  const role = userJson ? JSON.parse(userJson)?.user.role : null;
 
-  // useEffect(() => {
-  //     if (role !== "admin") {
-  //         navigate("/");
-  //     }
-  // }, [navigate, role]);
-  // const { loading } = useLoading();
-  // console.log(loading);
+  useEffect(() => {
+      if (role !== "admin") {
+          navigate("/");
+      }
+  }, [navigate, role]);
+ 
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
