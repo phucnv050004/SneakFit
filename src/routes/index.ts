@@ -5,6 +5,7 @@ import AdminNewsList from "@/pages/admin/News/List";
 import AdminAddProduct from "@/pages/admin/product/Add";
 import AdminEditProduct from "@/pages/admin/product/Edit";
 import AdminProductList from "@/pages/admin/product/List";
+import SizeManagement from "@/pages/admin/Size/SizeManagement";
 import Login from "@/pages/website/auth/Login";
 import Register from "@/pages/website/auth/Register";
 import pageBill from "@/pages/website/Bill/pageBill";
@@ -45,6 +46,7 @@ const Router = () => {
         { path: "/admin/news", Component: AdminNewsList },
         { path: "/admin/news/add", Component: AdminAddNews },
         { path: "/admin/news/edit/:id", Component: AdminEditNews },
+        { path: "/admin/sizes", Component: SizeManagement },
 
       ],
     },
