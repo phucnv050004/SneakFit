@@ -1,3 +1,4 @@
+import List from "@/pages/admin/Auth/List";
 import LayoutAdmin from "@/pages/admin/LayoutAdmin";
 import AdminAddNews from "@/pages/admin/News/Add";
 import AdminEditNews from "@/pages/admin/News/Edit";
@@ -47,6 +48,7 @@ const Router = () => {
         { path: "/admin/news/add", Component: AdminAddNews },
         { path: "/admin/news/edit/:id", Component: AdminEditNews },
         { path: "/admin/sizes", Component: SizeManagement },
+        { path: "/admin/auth", Component:List  },
 
       ],
     },
