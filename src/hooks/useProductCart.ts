@@ -1,7 +1,7 @@
+import { useCart } from "@/contexts/cart";
+import { useUser } from "@/contexts/user";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useCart } from "src/contexts/cart";
-import { useUser } from "src/contexts/user";
 import { TProduct } from "src/interfaces/TProduct";
 
 type AddToCart = {

@@ -1,5 +1,6 @@
 import { TProduct } from "@/interfaces/TProduct";
 import { ShoppingCartOutlined } from "@ant-design/icons";
+import { CardActions } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { FaRegEye } from "react-icons/fa";
@@ -29,7 +30,7 @@ const ProductList = () => {
 
         {/* Container sản phẩm với responsive grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mx-4">
-          {products.map((product,index) => (
+          {products.map((product, index) => (
             <div
               key={index}
               className="group overflow-hidden hover:shadow-lg rounded-lg pb-3 border"
@@ -66,12 +67,10 @@ const ProductList = () => {
                   </span>
                 </div>
                 <button className="flex items-center justify-center gap-1 border border-white hover:border-[#FCA120] rounded-full pl-2 mx-auto">
-                  <span className="text-[12px] uppercase font-semibold">
-                    Thêm vào giỏ
-                  </span>
-                  <div className="p-[6px] bg-[#FCA120] rounded-full">
-                    <ShoppingCartOutlined />
-                  </div>
+                  <Link to={`/detail/${product._id}`} className="text-[12px] uppercase font-semibold">
+                    xem chi tiết
+                  </Link>
+                
                 </button>
               </div>
             </div>

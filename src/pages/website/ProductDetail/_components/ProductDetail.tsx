@@ -1,11 +1,15 @@
+import { useProductCart } from "@/hooks/useProductCart";
 import { TProduct } from "@/interfaces/TProduct";
+import { TextField } from "@mui/material";
 import axios from "axios";
 import  { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
+  const { addToCart } = useProductCart();
+
   const [selectedSize, setSelectedSize] = useState<number>(40); // Lựa chọn kích cỡ mặc định
-  const [quantity, setQuantity] = useState<number>(1); // Số lượng sản phẩm
+  const [quantity, setQuantity] = useState<number>(0); // Số lượng sản phẩm
   const [product, setProduct] = useState<TProduct | null>(null);
 
   // Hàm để thay đổi kích cỡ
@@ -30,6 +34,10 @@ const ProductDetail = () => {
     };
     fetchProduct();
   }, []);
+  const handleAddToCart = (product: TProduct) => {
+    if (quantity <= 0) return;
+    addToCart({ product, quantity });
+  };
   return (
     <>
       <div className="container mx-auto mt-10 px-4 md:px-20">
@@ -91,16 +99,22 @@ const ProductDetail = () => {
             <div className="flex items-center mb-4">
               <button
                 className="px-4 py-2 bg-gray-200 rounded-md"
-                onClick={() => handleQuantityChange("decrease")}
+                onClick={() =>   setQuantity(quantity === 0 ? 0 : quantity - 1)}
                 aria-label="Giảm số lượng"
                 disabled={quantity === 1}
               >
                 -
               </button>
-              <span className="mx-4">{quantity}</span>
-              <button
+              <TextField
+                      id="outlined-basic"
+                      label="quantity"
+                      variant="outlined"
+                      type="number"
+                      value={quantity}
+                      onChange={(e) => setQuantity(Number(e.target.value))}
+                    />              <button
                 className="px-4 py-2 bg-gray-200 rounded-md"
-                onClick={() => handleQuantityChange("increase")}
+                onClick={() => setQuantity(quantity + 1)}
                 aria-label="Tăng số lượng"
               >
                 +
@@ -108,11 +122,9 @@ const ProductDetail = () => {
             </div>
 
             <div className="flex gap-4 mb-4">
-              <button className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600">
+              <button className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600" onClick={() => product && handleAddToCart(product)}
+              >
                 Thêm vào giỏ
-              </button>
-              <button className="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600">
-                Mua ngay
               </button>
             </div>
 
