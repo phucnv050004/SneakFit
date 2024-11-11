@@ -118,18 +118,33 @@ function ProductForm({ onSubmit, initialValues }: ProductFormProps) {
                                                 </MenuItem>
                                                 <MenuItem
                                                     value={
-                                                        "6686aaacafa549adadce6cf3"
+                                                        "671cd53f6a9f00877aedbb16"
                                                     }
                                                 >
-                                                    Bàn
+                                                   Giày Adidas
                                                 </MenuItem>
                                                 <MenuItem
                                                     value={
-                                                        "6686ab2d1e5d143c414e09ed"
+                                                        "671cd5896a9f00877aedbb18"
                                                     }
                                                 >
-                                                    Ghế
+                                                   Giày MLB
                                                 </MenuItem>
+                                                <MenuItem
+                                                    value={
+                                                        "671cd5996a9f00877aedbb1a"
+                                                    }
+                                                >
+                                                   Giày Nike
+                                                </MenuItem>
+                                                <MenuItem
+                                                    value={
+                                                        "671cd5da6a9f00877aedbb1c"
+                                                    }
+                                                >
+                                                  Giày Balenciga
+                                                </MenuItem>
+                                                
                                             </Select>
                                             {meta.touched && meta.error && (
                                                 <FormHelperText>
