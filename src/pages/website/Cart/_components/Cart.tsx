@@ -41,6 +41,9 @@ const CartPage = () => {
                           <p className="text-gray-600">
                             Số lượng: {item.quantity}
                           </p>
+                          <p className="text-gray-600">
+                            Kích cỡ: {item.size}
+                          </p>
                           <p className="text-red-500 font-semibold">
                             {item.product.price.toLocaleString()} ₫
                           </p>

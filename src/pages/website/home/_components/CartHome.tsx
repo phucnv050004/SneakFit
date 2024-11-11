@@ -74,7 +74,10 @@ const Cart = () => {
                                                 ...
                                             </Typography>
                                             <Typography color="text.secondary">
-                                                {item.quantity} ×{" "}
+                                                Size: {item.size}
+                                            </Typography>
+                                            <Typography color="text.secondary">
+                                               Số lượng: {item.quantity} ×{" "}
                                                 {item.product.price}₫
                                             </Typography>
                                         </Box>
