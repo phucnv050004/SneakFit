@@ -1,4 +1,3 @@
-import ConfirmDialog from "@/components/ConfirmDialog";
 import { TNews } from "@/interfaces/TNews";
 import AddIcon from "@mui/icons-material/Add";
 import {
@@ -17,8 +16,9 @@ import {
   Typography,
 } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
+import { notification, Popconfirm } from "antd";
 import axios from "axios";
-import { useEffect, useState, useRef, useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const AdminNewsList = () => {
@@ -65,33 +65,28 @@ const AdminNewsList = () => {
     }
   }, [currentPage]);
 
-  // Confirm deletion
-  const handleConfirmDelete = (id: string) => {
-    setOpenConfirmDialog(true);
-    setIdToDelete(id); // Đảm bảo ID là chuỗi
-  };
-
   // Delete a news item
-  const handleDelete = async () => {
+  const handleDelete = async (idToDelete: string) => {
+    setIdToDelete(String(idToDelete));
+
     if (!idToDelete) return;
 
     try {
       // Gửi yêu cầu DELETE đến API với ID
-      const response = await axios.delete(`/articles/${idToDelete}`);
-      setAlert({
-        open: true,
-        message: "Article deleted successfully!",
-        severity: "success",
-      });
+      await axios.delete(`/articles/${idToDelete}`);
 
       // Cập nhật lại danh sách bài viết sau khi xóa
-      setNews((prevNews) => prevNews.filter((item) => String(item.id) !== idToDelete));
-    } catch (error) {
-      console.error("Error deleting article:", error);
-      setAlert({
-        open: true,
-        message: "Failed to delete article.",
-        severity: "error",
+      setNews(
+        (prevNews) => prevNews.filter((item) => item._id !== idToDelete) // Đảm bảo _id trùng với ID bài viết trong dữ liệu
+      );
+      notification.success({
+        message: "Xóa bài viết thành công!",
+      });
+      // Cập nhật lại danh sách bài viết sau khi xóa
+    }    catch (error) {
+      console.log('Error deleting bài viết', error);
+      notification.error({
+        message: 'Có lỗi xảy ra khi xóa bài viết',
       });
     } finally {
       setOpenConfirmDialog(false); // Đóng hộp thoại xác nhận
@@ -125,7 +120,11 @@ const AdminNewsList = () => {
   };
 
   return (
-    <div ref={containerRef} className="container" style={{ position: "relative" }}>
+    <div
+      ref={containerRef}
+      className="container"
+      style={{ position: "relative" }}
+    >
       <Typography variant="body1" sx={{ fontWeight: "bold", mb: 2 }}>
         DashBoard/News
       </Typography>
@@ -159,8 +158,10 @@ const AdminNewsList = () => {
           </TableHead>
           <TableBody>
             {paginatedNews.map((item, index) => (
-              <TableRow key={item.id}>
-                <TableCell>{(currentPage - 1) * itemsPerPage + index + 1}</TableCell>
+              <TableRow key={item._id}>
+                <TableCell>
+                  {(currentPage - 1) * itemsPerPage + index + 1}
+                </TableCell>
                 <TableCell>{item.title}</TableCell>
                 <TableCell>
                   {item.images && item.images.length > 0 ? (
@@ -177,18 +178,21 @@ const AdminNewsList = () => {
                 <TableCell>{item.content.substring(0, 50)}...</TableCell>
                 <TableCell>
                   <Stack direction={"row"} spacing={1}>
-                    <Link to={`/admin/news/edit/${item.id}`}>
+                    <Link to={`/admin/news/edit/${item._id}`}>
                       <Button variant="contained" color="warning">
                         Sửa
                       </Button>
                     </Link>
-                    <Button
-                      variant="contained"
-                      color="error"
-                      onClick={() => handleConfirmDelete(String(item.id))} // Đảm bảo ID là chuỗi
+                    <Popconfirm
+                      title="Bạn có chắc muốn xóa bài viết này?"
+                      onConfirm={() => handleDelete(item._id)}
+                      okText="Có"
+                      cancelText="Không"
                     >
-                      Xóa
-                    </Button>
+                      <Button variant="contained" color="warning">
+                        Xóa
+                      </Button>
+                    </Popconfirm>
                   </Stack>
                 </TableCell>
               </TableRow>
@@ -219,11 +223,7 @@ const AdminNewsList = () => {
         </Alert>
       </Snackbar>
 
-      <ConfirmDialog
-        confirm={openConfirmDialog}
-        onConfirm={handleDelete} // Gọi hàm xóa khi xác nhận
-        onDelete={() => setOpenConfirmDialog(false)} // Đóng hộp thoại nếu không xác nhận
-      />
+
     </div>
   );
 };

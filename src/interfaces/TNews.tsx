@@ -1,4 +1,5 @@
 export type TNews = {
+  [x: string]: any;
   id: number;
   title: string;
   content: string;
