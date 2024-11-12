@@ -49,7 +49,7 @@ const ProductList = () => {
                     title="Xem nhanh"
                   />
                   <span className="absolute top-1 left-1 bg-[#FF0000] px-[5px] py-[2px] text-white text-[12px] rounded">
-                    -29%
+                    -30%
                   </span>
                 </div>
               </Link>
@@ -60,17 +60,19 @@ const ProductList = () => {
                 </h5>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
                   <span className="text-[#FF0000] font-semibold">
-                    {product.price}
+                    {(product.price)*0.7} VNĐ
                   </span>
                   <span className="text-[#878c8f] font-light line-through text-[12px]">
-                    1,250,000₫
+                    {product.price} VNĐ
                   </span>
                 </div>
                 <button className="flex items-center justify-center gap-1 border border-white hover:border-[#FCA120] rounded-full pl-2 mx-auto">
-                  <Link to={`/detail/${product._id}`} className="text-[12px] uppercase font-semibold">
+                  <Link
+                    to={`/detail/${product._id}`}
+                    className="text-[12px] uppercase font-semibold"
+                  >
                     xem chi tiết
                   </Link>
-                
                 </button>
               </div>
             </div>
