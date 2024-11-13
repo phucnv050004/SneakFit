@@ -34,7 +34,7 @@ const ProductDetail = () => {
   const handleSizeChange = (size: number) => {
     setSelectedSize(size);
     console.log(size);
-    
+
   };
 
   const handleQuantityChange = (operation: "increase" | "decrease") => {
@@ -117,6 +117,9 @@ const ProductDetail = () => {
           >
             Thêm vào giỏ
           </button>
+          <div>
+            <p className="mt-4">Mô tả: {product?.description}</p>
+          </div>
         </div>
       </div>
     </div>
