@@ -1,13 +1,12 @@
-import { useCart } from "@/contexts/cart";
-import { useUser } from "@/contexts/user";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useCart } from "src/contexts/cart";
+import { useUser } from "src/contexts/user";
 import { TProduct } from "src/interfaces/TProduct";
 
 type AddToCart = {
   product: TProduct;
   quantity: number;
-  size: number;
 };
 
 export function useProductCart() {
@@ -20,18 +19,15 @@ export function useProductCart() {
     setCart(data);
   };
 
-  const addToCart = async ({ product, quantity, size  }: AddToCart) => {
+  const addToCart = async ({ product, quantity }: AddToCart) => {
     if (!user) return;
     if (!cart) {
       try {
         await axios.post("/carts", {
           product,
           quantity,
-          size,
           user: user._id,
         });
-      
-        
         getCartUser();
       } catch (error) {
         console.log(error);
@@ -41,10 +37,8 @@ export function useProductCart() {
         await axios.put(`/carts/${cart._id}`, {
           product,
           quantity,
-          size,
           user: user._id,
         });
-        console.log(quantity);
         getCartUser();
       } catch (error) {}
     }
