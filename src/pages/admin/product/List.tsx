@@ -182,7 +182,7 @@ const AdminProductList = () => {
                                     </TableCell>
                                     <TableCell>{product.description}</TableCell>
                                     <TableCell>
-                                        {product.category.name}
+                                        {product.category?.name}
                                     </TableCell>
                                     <TableCell>
                                         <Stack direction={"row"}>

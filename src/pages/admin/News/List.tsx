@@ -1,4 +1,3 @@
-import ConfirmDialog from "@/components/ConfirmDialog";
 import { TNews } from "@/interfaces/TNews";
 import AddIcon from "@mui/icons-material/Add";
 import {
@@ -17,17 +16,23 @@ import {
   Typography,
 } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
+import { notification, Popconfirm } from "antd";
 import axios from "axios";
-import { useEffect, useState, useRef, useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const AdminNewsList = () => {
   const [news, setNews] = useState<TNews[]>([]);
-  const [confirm, setConfirm] = useState(false);
-  const [idDelete, setIdDelete] = useState<string | null>(null);
-  const [alert, setAlert] = useState<{ open: boolean; message: string }>({
+  const [openConfirmDialog, setOpenConfirmDialog] = useState(false);
+  const [idToDelete, setIdToDelete] = useState<string | null>(null); // Đảm bảo ID là chuỗi
+  const [alert, setAlert] = useState<{
+    open: boolean;
+    message: string;
+    severity: "success" | "error";
+  }>({
     open: false,
     message: "",
+    severity: "success",
   });
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -35,15 +40,21 @@ const AdminNewsList = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Fetch news data from API
+  const fetchNews = async () => {
+    try {
+      const { data } = await axios.get("/articles");
+      setNews(data);
+    } catch (error) {
+      console.error("Failed to fetch articles:", error);
+      setAlert({
+        open: true,
+        message: "Failed to fetch articles.",
+        severity: "error",
+      });
+    }
+  };
+
   useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const { data } = await axios.get("/news");
-        setNews(data);
-      } catch (error) {
-        console.error("Failed to fetch news:", error);
-      }
-    };
     fetchNews();
   }, []);
 
@@ -54,47 +65,52 @@ const AdminNewsList = () => {
     }
   }, [currentPage]);
 
-  // Confirm deletion
-  const handleConfirm = (id: string) => {
-    setConfirm(true);
-    setIdDelete(id);
-  };
-
   // Delete a news item
-  const handleDelete = async () => {
-    if (!idDelete) return;
+  const handleDelete = async (idToDelete: string) => {
+    setIdToDelete(String(idToDelete));
+
+    if (!idToDelete) return;
+
     try {
-      await axios.delete(`/news/${idDelete}`);
-      setAlert({ open: true, message: "News deleted successfully!" });
-      setNews(news.filter((item) => item._id !== idDelete));
-    } catch (error) {
-      console.error("Failed to delete news:", error);
-      setAlert({ open: true, message: "Failed to delete news." });
+      // Gửi yêu cầu DELETE đến API với ID
+      await axios.delete(`/articles/${idToDelete}`);
+
+      // Cập nhật lại danh sách bài viết sau khi xóa
+      setNews(
+        (prevNews) => prevNews.filter((item) => item._id !== idToDelete) // Đảm bảo _id trùng với ID bài viết trong dữ liệu
+      );
+      notification.success({
+        message: "Xóa bài viết thành công!",
+      });
+      // Cập nhật lại danh sách bài viết sau khi xóa
+    }    catch (error) {
+      console.log('Error deleting bài viết', error);
+      notification.error({
+        message: 'Có lỗi xảy ra khi xóa bài viết',
+      });
     } finally {
-      setConfirm(false);
+      setOpenConfirmDialog(false); // Đóng hộp thoại xác nhận
     }
   };
 
   const handleCloseAlert = () => {
-    setAlert({ open: false, message: "" });
+    setAlert({ open: false, message: "", severity: "success" });
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
-  // Filter news by search term
   const filteredNews = useMemo(() => {
     return news.filter((item) =>
       item.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [news, searchTerm]);
 
-  // Pagination logic
-  const paginatedNews = filteredNews.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+  const paginatedNews = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return filteredNews.slice(startIndex, startIndex + itemsPerPage);
+  }, [filteredNews, currentPage]);
 
   const handleChangePage = (
     event: React.ChangeEvent<unknown>,
@@ -134,8 +150,8 @@ const AdminNewsList = () => {
             <TableRow>
               <TableCell>#</TableCell>
               <TableCell>Tiêu đề</TableCell>
+              <TableCell>Ảnh</TableCell>
               <TableCell>Tác giả</TableCell>
-              <TableCell>Ngày đăng</TableCell>
               <TableCell>Nội dung</TableCell>
               <TableCell>Tác vụ</TableCell>
             </TableRow>
@@ -147,10 +163,18 @@ const AdminNewsList = () => {
                   {(currentPage - 1) * itemsPerPage + index + 1}
                 </TableCell>
                 <TableCell>{item.title}</TableCell>
-                <TableCell>{item.author}</TableCell>
                 <TableCell>
-                  {new Date(item.date).toLocaleDateString()}
+                  {item.images && item.images.length > 0 ? (
+                    <img
+                      src={item.images}
+                      alt={item.title}
+                      style={{ width: 100, height: 100, objectFit: "cover" }}
+                    />
+                  ) : (
+                    "No image"
+                  )}
                 </TableCell>
+                <TableCell>{item.author || "Chưa có tác giả"}</TableCell>
                 <TableCell>{item.content.substring(0, 50)}...</TableCell>
                 <TableCell>
                   <Stack direction={"row"} spacing={1}>
@@ -159,13 +183,16 @@ const AdminNewsList = () => {
                         Sửa
                       </Button>
                     </Link>
-                    <Button
-                      variant="contained"
-                      color="error"
-                      onClick={() => handleConfirm(item._id)}
+                    <Popconfirm
+                      title="Bạn có chắc muốn xóa bài viết này?"
+                      onConfirm={() => handleDelete(item._id)}
+                      okText="Có"
+                      cancelText="Không"
                     >
-                      Xóa
-                    </Button>
+                      <Button variant="contained" color="warning">
+                        Xóa
+                      </Button>
+                    </Popconfirm>
                   </Stack>
                 </TableCell>
               </TableRow>
@@ -189,18 +216,14 @@ const AdminNewsList = () => {
       >
         <Alert
           onClose={handleCloseAlert}
-          severity="success"
+          severity={alert.severity}
           sx={{ width: "100%" }}
         >
           {alert.message}
         </Alert>
       </Snackbar>
 
-      <ConfirmDialog
-        confirm={confirm}
-        onConfirm={setConfirm}
-        onDelete={handleDelete}
-      />
+
     </div>
   );
 };

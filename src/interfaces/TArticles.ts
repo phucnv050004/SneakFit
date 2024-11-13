@@ -1,4 +1,4 @@
-export default interface TArticles {
+export type TNews = {
   id: number;
   title: string;
   content: string;
