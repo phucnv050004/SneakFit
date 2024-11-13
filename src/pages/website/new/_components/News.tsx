@@ -106,30 +106,38 @@ const News = () => {
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 p-4 px-8">
         {news.map((newItem) => (
-          <Card
-            key={newItem.id}
-            cover={
-              <img
-                src={newItem.images}
-                alt={newItem.title}
-                className="w-full h-48 object-cover"
-              />
-            }
-            className="bg-card rounded-lg shadow-md overflow-hidden"
-          >
-            <Card.Meta
-              title={<h3 className="text-lg font-semibold break-words whitespace-normal">{newItem.title}</h3>}
-              description={
-                <>
-                  <p className="text-muted-foreground text-sm">
-                    {newItem.date}
-                  </p>
-                  <p className="text-secondary">{newItem.category}</p>
-                  <p className="text-muted-foreground">{newItem.description}</p>
-                </>
+          <Link to={`/article/${newItem._id}`} key={newItem.id}>
+            <Card
+              key={newItem.id}
+              cover={
+                <img
+                  src={newItem.images}
+                  alt={newItem.title}
+                  className="w-full h-48 object-cover"
+                />
               }
-            />
-          </Card>
+              className="bg-card rounded-lg shadow-md overflow-hidden"
+            >
+              <Card.Meta
+                title={
+                  <h3 className="text-lg font-semibold break-words whitespace-normal">
+                    {newItem.title}
+                  </h3>
+                }
+                description={
+                  <>
+                    <p className="text-muted-foreground text-sm">
+                      {newItem.date}
+                    </p>
+                    <p className="text-secondary">{newItem.category}</p>
+                    <p className="text-muted-foreground">
+                      {newItem.description}
+                    </p>
+                  </>
+                }
+              />
+            </Card>
+          </Link>
         ))}
       </div>
     </>
