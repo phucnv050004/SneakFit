@@ -1,3 +1,4 @@
+import { TProduct } from "@/interfaces/TProduct";
 import {
   DoubleRightOutlined,
   FilterOutlined,
@@ -5,11 +6,24 @@ import {
   SortAscendingOutlined,
 } from "@ant-design/icons";
 import { Button, Checkbox, Drawer, Dropdown, MenuProps } from "antd";
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { FaRegEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Products = () => {
+  const [products, setProducts] = useState<TProduct[]>([]);
+  const getAll = async () => {
+    try {
+      const {data} = await axios.get("/products");
+      setProducts(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getAll();
+  },[]);
   const [, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const show = () => {
@@ -120,369 +134,47 @@ const Products = () => {
       </Drawer>
       {/* sản phẩm  */}
       <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 items-center gap-8 mx-8 mb-4 ">
-        <div className="group overflow-hidden hover:shadow-lg rounded-lg pb-3 border  ">
-          <Link to={`/detail`}>
-            <div className="relative">
-              <div className="flex transition-transform ease-in-out duration-500">
-                <img
-                  src="https://product.hstatic.net/200000525917/product/ipad_adidas-forum-exhibit-mid-fo_c13e8d752dda4eb096915727bb1242ce_8b5844d0c5154a49a2a89544492d2b75_grande.jpg"
-                  alt=""
-                  className="object-cover"
-                />
-              </div>
-              <FaRegEye
-                className="absolute left-[40%] top-[50%] bg-white text-[#6d6565] rounded-full size-7 md:size-8 px-1 py-[2px] opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500 hover:bg-[#444444] hover:text-white hover:border hover:border-white"
-                title="Xem nhanh"
-              />
-              <span className="absolute top-1 left-1 bg-[#FF0000] px-[5px] py-[2px] text-white text-[12px] rounded">
-                -29%
-              </span>
-            </div>
-          </Link>
-
-          <div className="mx-2 text-center space-y-2 mt-3">
-            <h5>Giày Adidas Forum Exhibit</h5>
-            <div className="flex sm:flex-row flex-col items-center justify-center gap-2">
-              <span className="text-[#FF0000] font-semibold">890,000₫</span>
-              <span className="text-[#878c8f] font-light line-through text-[13px]">
-                1,250,000₫
-              </span>
-            </div>
-            <button className="flex items-center justify-center gap-1 border border-white hover:border-[#FCA120] rounded-full pl-2 mx-auto">
-              <span className="text-[12px] uppercase font-semibold text-ellipsis ">
-                Thêm vào giỏ
-              </span>
-              <div className="p-[6px] bg-[#FCA120] rounded-full">
-                <ShoppingCartOutlined />
-              </div>
-            </button>
-          </div>
-        </div>
-
-        {/* End product */}
-        <div className="group overflow-hidden hover:shadow-lg rounded-lg pb-3 border ">
-          <div className="relative">
-            <div className="flex transition-transform ease-in-out duration-500">
-              <img
-                src="https://product.hstatic.net/200000525917/product/ipad_adidas-forum-exhibit-mid-fo_c13e8d752dda4eb096915727bb1242ce_8b5844d0c5154a49a2a89544492d2b75_grande.jpg"
-                alt=""
-                className="object-cover"
-              />
-            </div>
-            <FaRegEye
-              className="absolute left-[40%] top-[50%] bg-white text-[#6d6565] rounded-full size-7 md:size-8 px-1 py-[2px] opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500 hover:bg-[#444444] hover:text-white hover:border hover:border-white"
-              title="Xem nhanh"
-            />
-            <span className="absolute top-1 left-1 bg-[#FF0000] px-[5px] py-[2px] text-white text-[12px] rounded">
-              -29%
-            </span>
-          </div>
-          <div className="mx-2 text-center space-y-2 mt-3">
-            <h5>Giày Adidas Forum Exhibit</h5>
-            <div className="flex sm:flex-row flex-col items-center justify-center gap-2">
-              <span className="text-[#FF0000] font-semibold">890,000₫</span>
-              <span className="text-[#878c8f] font-light line-through text-[13px]">
-                1,250,000₫
-              </span>
-            </div>
-            <button className="flex items-center justify-center gap-1 border border-white hover:border-[#FCA120] rounded-full pl-2 mx-auto">
-              <span className="text-[12px] uppercase font-semibold text-ellipsis ">
-                Thêm vào giỏ
-              </span>
-              <div className="p-[6px] bg-[#FCA120] rounded-full">
-                <ShoppingCartOutlined />
-              </div>
-            </button>
-          </div>
-        </div>
-        {/* End product */}
-        <div className="group overflow-hidden hover:shadow-lg rounded-lg pb-3 border ">
-          <div className="relative">
-            <div className="flex transition-transform ease-in-out duration-500">
-              <img
-                src="https://product.hstatic.net/200000525917/product/ipad_adidas-forum-exhibit-mid-fo_c13e8d752dda4eb096915727bb1242ce_8b5844d0c5154a49a2a89544492d2b75_grande.jpg"
-                alt=""
-                className="object-cover"
-              />
-            </div>
-            <FaRegEye
-              className="absolute left-[40%] top-[50%] bg-white text-[#6d6565] rounded-full size-7 md:size-8 px-1 py-[2px] opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500 hover:bg-[#444444] hover:text-white hover:border hover:border-white"
-              title="Xem nhanh"
-            />
-            <span className="absolute top-1 left-1 bg-[#FF0000] px-[5px] py-[2px] text-white text-[12px] rounded">
-              -29%
-            </span>
-          </div>
-          <div className="mx-2 text-center space-y-2 mt-3">
-            <h5>Giày Adidas Forum Exhibit</h5>
-            <div className="flex sm:flex-row flex-col items-center justify-center gap-2">
-              <span className="text-[#FF0000] font-semibold">890,000₫</span>
-              <span className="text-[#878c8f] font-light line-through text-[13px]">
-                1,250,000₫
-              </span>
-            </div>
-            <button className="flex items-center justify-center gap-1 border border-white hover:border-[#FCA120] rounded-full pl-2 mx-auto">
-              <span className="text-[12px] uppercase font-semibold text-ellipsis ">
-                Thêm vào giỏ
-              </span>
-              <div className="p-[6px] bg-[#FCA120] rounded-full">
-                <ShoppingCartOutlined />
-              </div>
-            </button>
-          </div>
-        </div>
-        {/* End product */}
-        <div className="group overflow-hidden hover:shadow-lg rounded-lg pb-3 border ">
-          <div className="relative">
-            <div className="flex transition-transform ease-in-out duration-500">
-              <img
-                src="https://product.hstatic.net/200000525917/product/ipad_adidas-forum-exhibit-mid-fo_c13e8d752dda4eb096915727bb1242ce_8b5844d0c5154a49a2a89544492d2b75_grande.jpg"
-                alt=""
-                className="object-cover"
-              />
-            </div>
-            <FaRegEye
-              className="absolute left-[40%] top-[50%] bg-white text-[#6d6565] rounded-full size-7 md:size-8 px-1 py-[2px] opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500 hover:bg-[#444444] hover:text-white hover:border hover:border-white"
-              title="Xem nhanh"
-            />
-            <span className="absolute top-1 left-1 bg-[#FF0000] px-[5px] py-[2px] text-white text-[12px] rounded">
-              -29%
-            </span>
-          </div>
-          <div className="mx-2 text-center space-y-2 mt-3">
-            <h5>Giày Adidas Forum Exhibit</h5>
-            <div className="flex sm:flex-row flex-col items-center justify-center gap-2">
-              <span className="text-[#FF0000] font-semibold">890,000₫</span>
-              <span className="text-[#878c8f] font-light line-through text-[13px]">
-                1,250,000₫
-              </span>
-            </div>
-            <button className="flex items-center justify-center gap-1 border border-white hover:border-[#FCA120] rounded-full pl-2 mx-auto">
-              <span className="text-[12px] uppercase font-semibold text-ellipsis ">
-                Thêm vào giỏ
-              </span>
-              <div className="p-[6px] bg-[#FCA120] rounded-full">
-                <ShoppingCartOutlined />
-              </div>
-            </button>
-          </div>
-        </div>
-        {/* End product */}
-        <div className="group overflow-hidden hover:shadow-lg rounded-lg pb-3 border ">
-          <div className="relative">
-            <div className="flex transition-transform ease-in-out duration-500">
-              <img
-                src="https://product.hstatic.net/200000525917/product/ipad_adidas-forum-exhibit-mid-fo_c13e8d752dda4eb096915727bb1242ce_8b5844d0c5154a49a2a89544492d2b75_grande.jpg"
-                alt=""
-                className="object-cover"
-              />
-            </div>
-            <FaRegEye
-              className="absolute left-[40%] top-[50%] bg-white text-[#6d6565] rounded-full size-7 md:size-8 px-1 py-[2px] opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500 hover:bg-[#444444] hover:text-white hover:border hover:border-white"
-              title="Xem nhanh"
-            />
-            <span className="absolute top-1 left-1 bg-[#FF0000] px-[5px] py-[2px] text-white text-[12px] rounded">
-              -29%
-            </span>
-          </div>
-          <div className="mx-2 text-center space-y-2 mt-3">
-            <h5>Giày Adidas Forum Exhibit</h5>
-            <div className="flex sm:flex-row flex-col items-center justify-center gap-2">
-              <span className="text-[#FF0000] font-semibold">890,000₫</span>
-              <span className="text-[#878c8f] font-light line-through text-[13px]">
-                1,250,000₫
-              </span>
-            </div>
-            <button className="flex items-center justify-center gap-1 border border-white hover:border-[#FCA120] rounded-full pl-2 mx-auto">
-              <span className="text-[12px] uppercase font-semibold text-ellipsis ">
-                Thêm vào giỏ
-              </span>
-              <div className="p-[6px] bg-[#FCA120] rounded-full">
-                <ShoppingCartOutlined />
-              </div>
-            </button>
-          </div>
-        </div>
-        {/* End product */}
-        <div className="group overflow-hidden hover:shadow-lg rounded-lg pb-3 border ">
-          <div className="relative">
-            <div className="flex transition-transform ease-in-out duration-500">
-              <img
-                src="https://product.hstatic.net/200000525917/product/ipad_adidas-forum-exhibit-mid-fo_c13e8d752dda4eb096915727bb1242ce_8b5844d0c5154a49a2a89544492d2b75_grande.jpg"
-                alt=""
-                className="object-cover"
-              />
-            </div>
-            <FaRegEye
-              className="absolute left-[40%] top-[50%] bg-white text-[#6d6565] rounded-full size-7 md:size-8 px-1 py-[2px] opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500 hover:bg-[#444444] hover:text-white hover:border hover:border-white"
-              title="Xem nhanh"
-            />
-            <span className="absolute top-1 left-1 bg-[#FF0000] px-[5px] py-[2px] text-white text-[12px] rounded">
-              -29%
-            </span>
-          </div>
-          <div className="mx-2 text-center space-y-2 mt-3">
-            <h5>Giày Adidas Forum Exhibit</h5>
-            <div className="flex sm:flex-row flex-col items-center justify-center gap-2">
-              <span className="text-[#FF0000] font-semibold">890,000₫</span>
-              <span className="text-[#878c8f] font-light line-through text-[13px]">
-                1,250,000₫
-              </span>
-            </div>
-            <button className="flex items-center justify-center gap-1 border border-white hover:border-[#FCA120] rounded-full pl-2 mx-auto">
-              <span className="text-[12px] uppercase font-semibold text-ellipsis ">
-                Thêm vào giỏ
-              </span>
-              <div className="p-[6px] bg-[#FCA120] rounded-full">
-                <ShoppingCartOutlined />
-              </div>
-            </button>
-          </div>
-        </div>
-        {/* End product */}
-        <div className="group overflow-hidden hover:shadow-lg rounded-lg pb-3 border ">
-          <div className="relative">
-            <div className="flex transition-transform ease-in-out duration-500">
-              <img
-                src="https://product.hstatic.net/200000525917/product/ipad_adidas-forum-exhibit-mid-fo_c13e8d752dda4eb096915727bb1242ce_8b5844d0c5154a49a2a89544492d2b75_grande.jpg"
-                alt=""
-                className="object-cover"
-              />
-            </div>
-            <FaRegEye
-              className="absolute left-[40%] top-[50%] bg-white text-[#6d6565] rounded-full size-7 md:size-8 px-1 py-[2px] opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500 hover:bg-[#444444] hover:text-white hover:border hover:border-white"
-              title="Xem nhanh"
-            />
-            <span className="absolute top-1 left-1 bg-[#FF0000] px-[5px] py-[2px] text-white text-[12px] rounded">
-              -29%
-            </span>
-          </div>
-          <div className="mx-2 text-center space-y-2 mt-3">
-            <h5>Giày Adidas Forum Exhibit</h5>
-            <div className="flex sm:flex-row flex-col items-center justify-center gap-2">
-              <span className="text-[#FF0000] font-semibold">890,000₫</span>
-              <span className="text-[#878c8f] font-light line-through text-[13px]">
-                1,250,000₫
-              </span>
-            </div>
-            <button className="flex items-center justify-center gap-1 border border-white hover:border-[#FCA120] rounded-full pl-2 mx-auto">
-              <span className="text-[12px] uppercase font-semibold text-ellipsis ">
-                Thêm vào giỏ
-              </span>
-              <div className="p-[6px] bg-[#FCA120] rounded-full">
-                <ShoppingCartOutlined />
-              </div>
-            </button>
-          </div>
-        </div>
-        {/* End product */}
-        <div className="group overflow-hidden hover:shadow-lg rounded-lg pb-3 border ">
-          <div className="relative">
-            <div className="flex transition-transform ease-in-out duration-500">
-              <img
-                src="https://product.hstatic.net/200000525917/product/ipad_adidas-forum-exhibit-mid-fo_c13e8d752dda4eb096915727bb1242ce_8b5844d0c5154a49a2a89544492d2b75_grande.jpg"
-                alt=""
-                className="object-cover"
-              />
-            </div>
-            <FaRegEye
-              className="absolute left-[40%] top-[50%] bg-white text-[#6d6565] rounded-full size-7 md:size-8 px-1 py-[2px] opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500 hover:bg-[#444444] hover:text-white hover:border hover:border-white"
-              title="Xem nhanh"
-            />
-            <span className="absolute top-1 left-1 bg-[#FF0000] px-[5px] py-[2px] text-white text-[12px] rounded">
-              -29%
-            </span>
-          </div>
-          <div className="mx-2 text-center space-y-2 mt-3">
-            <h5>Giày Adidas Forum Exhibit</h5>
-            <div className="flex sm:flex-row flex-col items-center justify-center gap-2">
-              <span className="text-[#FF0000] font-semibold">890,000₫</span>
-              <span className="text-[#878c8f] font-light line-through text-[13px]">
-                1,250,000₫
-              </span>
-            </div>
-            <button className="flex items-center justify-center gap-1 border border-white hover:border-[#FCA120] rounded-full pl-2 mx-auto">
-              <span className="text-[12px] uppercase font-semibold text-ellipsis ">
-                Thêm vào giỏ
-              </span>
-              <div className="p-[6px] bg-[#FCA120] rounded-full">
-                <ShoppingCartOutlined />
-              </div>
-            </button>
-          </div>
-        </div>
-        {/* End product */}
-        <div className="group overflow-hidden hover:shadow-lg rounded-lg pb-3 border ">
-          <div className="relative">
-            <div className="flex transition-transform ease-in-out duration-500">
-              <img
-                src="https://product.hstatic.net/200000525917/product/ipad_adidas-forum-exhibit-mid-fo_c13e8d752dda4eb096915727bb1242ce_8b5844d0c5154a49a2a89544492d2b75_grande.jpg"
-                alt=""
-                className="object-cover"
-              />
-            </div>
-            <FaRegEye
-              className="absolute left-[40%] top-[50%] bg-white text-[#6d6565] rounded-full size-7 md:size-8 px-1 py-[2px] opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500 hover:bg-[#444444] hover:text-white hover:border hover:border-white"
-              title="Xem nhanh"
-            />
-            <span className="absolute top-1 left-1 bg-[#FF0000] px-[5px] py-[2px] text-white text-[12px] rounded">
-              -29%
-            </span>
-          </div>
-          <div className="mx-2 text-center space-y-2 mt-3">
-            <h5>Giày Adidas Forum Exhibit</h5>
-            <div className="flex sm:flex-row flex-col items-center justify-center gap-2">
-              <span className="text-[#FF0000] font-semibold">890,000₫</span>
-              <span className="text-[#878c8f] font-light line-through text-[13px]">
-                1,250,000₫
-              </span>
-            </div>
-            <button className="flex items-center justify-center gap-1 border border-white hover:border-[#FCA120] rounded-full pl-2 mx-auto">
-              <span className="text-[12px] uppercase font-semibold text-ellipsis ">
-                Thêm vào giỏ
-              </span>
-              <div className="p-[6px] bg-[#FCA120] rounded-full">
-                <ShoppingCartOutlined />
-              </div>
-            </button>
-          </div>
-        </div>
-        {/* End product */}
-        <div className="group overflow-hidden hover:shadow-lg rounded-lg pb-3 border ">
-          <div className="relative">
-            <div className="flex transition-transform ease-in-out duration-500">
-              <img
-                src="https://product.hstatic.net/200000525917/product/ipad_adidas-forum-exhibit-mid-fo_c13e8d752dda4eb096915727bb1242ce_8b5844d0c5154a49a2a89544492d2b75_grande.jpg"
-                alt=""
-                className="object-cover"
-              />
-            </div>
-            <FaRegEye
-              className="absolute left-[40%] top-[50%] bg-white text-[#6d6565] rounded-full size-7 md:size-8 px-1 py-[2px] opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500 hover:bg-[#444444] hover:text-white hover:border hover:border-white"
-              title="Xem nhanh"
-            />
-            <span className="absolute top-1 left-1 bg-[#FF0000] px-[5px] py-[2px] text-white text-[12px] rounded">
-              -29%
-            </span>
-          </div>
-          <div className="mx-2 text-center space-y-2 mt-3">
-            <h5>Giày Adidas Forum Exhibit</h5>
-            <div className="flex sm:flex-row flex-col items-center justify-center gap-2">
-              <span className="text-[#FF0000] font-semibold">890,000₫</span>
-              <span className="text-[#878c8f] font-light line-through text-[13px]">
-                1,250,000₫
-              </span>
-            </div>
-            <button className="flex items-center justify-center gap-1 border border-white hover:border-[#FCA120] rounded-full pl-2 mx-auto">
-              <span className="text-[12px] uppercase font-semibold text-ellipsis ">
-                Thêm vào giỏ
-              </span>
-              <div className="p-[6px] bg-[#FCA120] rounded-full">
-                <ShoppingCartOutlined />
-              </div>
-            </button>
-          </div>
-        </div>
+        {products.map((product) => (
+           <div className="group overflow-hidden hover:shadow-lg rounded-lg pb-3 border  ">
+           <Link to={`/detail/${product._id}`}>
+             <div className="relative">
+               <div className="flex transition-transform ease-in-out duration-500">
+                 <img
+                   src={product.image}
+                   alt="doi ti..."
+                   className="object-cover"
+                 />
+               </div>
+               <FaRegEye
+                 className="absolute left-[40%] top-[50%] bg-white text-[#6d6565] rounded-full size-7 md:size-8 px-1 py-[2px] opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500 hover:bg-[#444444] hover:text-white hover:border hover:border-white"
+                 title="Xem nhanh"
+               />
+               <span className="absolute top-1 left-1 bg-[#FF0000] px-[5px] py-[2px] text-white text-[12px] rounded">
+                 -29%
+               </span>
+             </div>
+           </Link>
+ 
+           <div className="mx-2 text-center space-y-2 mt-3">
+             <h5>{product.title}</h5>
+             <div className="flex sm:flex-row flex-col items-center justify-center gap-2">
+               <span className="text-[#FF0000] font-semibold">{product.price}đ</span>
+               <span className="text-[#878c8f] font-light line-through text-[13px]">
+                 1,250,000₫
+               </span>
+             </div>
+             <button className="flex items-center justify-center gap-1 border border-white hover:border-[#FCA120] rounded-full pl-2 mx-auto">
+               <span className="text-[12px] uppercase font-semibold text-ellipsis ">
+                 Thêm vào giỏ
+               </span>
+               <div className="p-[6px] bg-[#FCA120] rounded-full">
+                 <ShoppingCartOutlined />
+               </div>
+             </button>
+           </div>
+         </div>
+        ))}
+       
         {/* End product */}
       </div>
     </>
