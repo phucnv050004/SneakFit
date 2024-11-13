@@ -135,7 +135,7 @@ const Header = () => {
         key: '0'
       },
       {
-        label: <a href='#'>Đơn hàng</a>, // Liên kết đến trang đơn hàng
+        label: <a href='/orders'>Đơn hàng</a>, // Liên kết đến trang đơn hàng
         key: '1'
       },
       { type: 'divider' }, // Đường kẻ phân cách

@@ -9,7 +9,7 @@ const orderStatusMap: { [key: string]: string } = {
   Processing: "Đang xử lý",
   Pending: "Chờ xác nhận",
   Confirmed: "Đã xác nhận",
-  "Pending-Ship": "Đang chờ bên vận chuyển",
+  Shipped: "Đang vận chuyển",
   Delivering: "Đang vận chuyển",
   Delivered: "Giao hàng thành công",
   Canceled: "Đã hủy đơn hàng",

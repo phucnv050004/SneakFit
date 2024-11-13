@@ -19,7 +19,7 @@ interface Order {
   phone: string;
   totalPrice: number;
   payment: string;
-  status: 'Pending' | 'Shipped' | 'Delivered';
+  status: 'Pending' | 'Shipped' | 'Delivered' ;
   products: Product[];
 }
 
