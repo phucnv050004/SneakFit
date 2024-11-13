@@ -24,6 +24,8 @@ type CheckoutFormParams = {
   address: string;
   note: string;
   payment: string;
+  status: string;
+  invoiceId: string;
 };
 
 const BillPage = () => {
@@ -48,15 +50,22 @@ const BillPage = () => {
   const onSubmit = async (values: CheckoutFormParams) => {
     if (!user || !cart || !cart?.products.length) return;
     try {
-      await axios.post("/orders", {
-        ...values,
-        products: cart.products,
-        user: user._id,
-        totalPrice,
-      });
-      await getCartUser();
-      alert("Checkout thành công");
-      navigate("/");
+      console.log(cart);
+      
+      axios
+        .post('/orders', {
+          ...values,
+          products: cart.products,
+          user: user._id,
+          totalPrice,
+        })
+        .then((response) => {
+          console.log(response);
+          navigate(`/check_out_order?orderId=${response.data?.data?._id}`)
+        })
+        .catch((error) => {
+          console.error('Error:', error)
+        })
     } catch (error) {
       console.error(error);
     }
