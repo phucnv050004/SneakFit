@@ -15,6 +15,8 @@ import pageContact from "@/pages/website/contact/page";
 import pageHome from "@/pages/website/home/page";
 import layoutWebsite from "@/pages/website/layout";
 import pageNews from "@/pages/website/new/page";
+import CheckOutOrder from "@/pages/website/Order/Checkout";
+import OrderPage from "@/pages/website/Order/Order";
 import pageDetail from "@/pages/website/ProductDetail/page";
 import PageProductList from "@/pages/website/products/page";
 import { useRoutes } from "react-router-dom";
@@ -32,6 +34,8 @@ const Router = () => {
         { path: "contact", Component: pageContact },
         { path: "new", Component: pageNews },
         { path: "bill", Component: pageBill },
+        { path: "orders", Component: OrderPage },
+        { path: "check_out_order", Component: CheckOutOrder },
         { path: "login", Component: Login },
         { path: "register", Component: Register },
       ],
