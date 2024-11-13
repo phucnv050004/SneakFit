@@ -3,12 +3,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useEffect, useState } from 'react';
-import { TProduct } from '@/interfaces/TProduct';
 import axios from 'axios';
-import TArticles from '@/interfaces/TArticles';
+import { Link } from 'react-router-dom';
+import { TNews } from '@/interfaces/TNews';
 
 const PromotionalProducts = () => {
-  const [news, setNews] = useState<TArticles[]>([]);
+  const [news, setNews] = useState<TNews[]>([]);
 
   // Cấu hình của slider
   const settings = {
@@ -54,14 +54,17 @@ const PromotionalProducts = () => {
       <h2 className="text-black text-2xl font-bold ml-2 ">Bài Viết</h2>
       <Slider {...settings} className="mt-4">
         {news.map((article) => (
-          <div className="p-2">
-            <Card
-              hoverable
-              cover={<img alt={article.title} src={article.images} className="w-full h-64 object-cover" />}
-            >
-              <h3 className="text-lg font-semibold">{article.title.substring(0, 20)}...</h3>
-            </Card>
-          </div>
+          <Link to={`/article/${article._id}`}>
+            <div className="p-2">
+              <Card
+                hoverable
+                cover={<img alt={article.title} src={article.images} className="w-full h-64 object-cover" />}
+              >
+                <h3 className="text-lg font-semibold">{article.title.substring(0, 20)}...</h3>
+              </Card>
+            </div>
+          </Link>
+
         ))}
       </Slider>
     </div>

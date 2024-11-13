@@ -7,6 +7,7 @@ import AdminAddProduct from "@/pages/admin/product/Add";
 import AdminEditProduct from "@/pages/admin/product/Edit";
 import AdminProductList from "@/pages/admin/product/List";
 import SizeManagement from "@/pages/admin/Size/SizeManagement";
+import page from "@/pages/website/ArticleDetail/page";
 import Login from "@/pages/website/auth/Login";
 import Register from "@/pages/website/auth/Register";
 import pageBill from "@/pages/website/Bill/pageBill";
@@ -30,7 +31,8 @@ const Router = () => {
         { path: "detail/:id", Component: pageDetail },
         { path: "products", Component: PageProductList },
         { path: "contact", Component: pageContact },
-        { path: "new", Component: pageNews },
+        { path: "articles", Component: pageNews },
+        { path: "article/:id",Component:page},
         { path: "bill", Component: pageBill },
         { path: "login", Component: Login },
         { path: "register", Component: Register },

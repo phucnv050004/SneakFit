@@ -62,7 +62,7 @@ const Header = () => {
       ),
     },
   ];
-  
+
 
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
@@ -79,7 +79,7 @@ const Header = () => {
     setOpen(false);
   };
 
-  const {user, setUser} = useUser();
+  const { user, setUser } = useUser();
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -130,36 +130,36 @@ const Header = () => {
   // ]
   const users: MenuProps['items'] = user
     ? [
-        {
-          label: <a href='/profile'>{user.username}</a>, // Hiển thị tên người dùng nếu đăng nhập
-          key: '0'
-        },
-        {
-          label: <a href='#'>Đơn hàng</a>, // Liên kết đến trang đơn hàng
-          key: '1'
-        },
-        { type: 'divider' }, // Đường kẻ phân cách
-        {
-          label: (
-            <a href='/' onClick={handleLogout}>
-              Đăng xuất
-            </a>
-          ),
-          key: '3'
-        }
-      ]
+      {
+        label: <a href='/profile'>{user.username}</a>, // Hiển thị tên người dùng nếu đăng nhập
+        key: '0'
+      },
+      {
+        label: <a href='#'>Đơn hàng</a>, // Liên kết đến trang đơn hàng
+        key: '1'
+      },
+      { type: 'divider' }, // Đường kẻ phân cách
+      {
+        label: (
+          <a href='/' onClick={handleLogout}>
+            Đăng xuất
+          </a>
+        ),
+        key: '3'
+      }
+    ]
     : window.innerWidth < 800
       ? []
       : [
-          {
-            label: <NavLink to='/register'>Đăng ký</NavLink>,
-            key: '1'
-          },
-          {
-            label: <NavLink to='/login'>Đăng nhập</NavLink>,
-            key: '2'
-          }
-        ]
+        {
+          label: <NavLink to='/register'>Đăng ký</NavLink>,
+          key: '1'
+        },
+        {
+          label: <NavLink to='/login'>Đăng nhập</NavLink>,
+          key: '2'
+        }
+      ]
   const { token } = useToken();
 
   const contentStyle: React.CSSProperties = {
@@ -201,7 +201,7 @@ const Header = () => {
               Sản phẩm
             </NavLink>
             <NavLink
-              to={"/new"}
+              to={"/articles"}
               className="text-muted hover:text-muted-foreground no-underline text-xl "
             >
               Tin tức
@@ -255,16 +255,16 @@ const Header = () => {
                       <Button shape='circle' className='mt-1.5'>
                         <UserOutlined />
                       </Button>
-                     
+
                     </div>
                   ) : // Nếu không có người dùng đăng nhập, hiển thị icon mặc định
-                  window.innerWidth < 800 ? (
-                    <Link to={`login`}>
+                    window.innerWidth < 800 ? (
+                      <Link to={`login`}>
+                        <Button shape='circle' icon={<UserOutlined />} />
+                      </Link>
+                    ) : (
                       <Button shape='circle' icon={<UserOutlined />} />
-                    </Link>
-                  ) : (
-                    <Button shape='circle' icon={<UserOutlined />} />
-                  )}
+                    )}
                 </Space>
               </span>
             </Dropdown>
