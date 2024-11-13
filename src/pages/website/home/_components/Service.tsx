@@ -31,13 +31,13 @@ const Service = () => {
 
   return (
     <>
-   <div className="relative w-full overflow-hidden mb-5 mt-10 mx-auto max-w-[1850px]">
+   <div className="relative w-full overflow-hidden mb-5 mt-10 mx-auto max-w-[1900px]">
   <img
     src="https://file.hstatic.net/200000525917/file/banner-wd-desk_eb2d618082d64dd2b38af284e3a0a9ce_2048x2048.jpg"
     alt=""
     className="w-full h-auto"
   />
-  <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50 px-2 mb-">
+  <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50 px-2">
     <h5 className="text-xl md:text-4xl font-bold mb-4 md:mb-6 ">Sản phẩm tuyệt vời</h5>
     <p className="text-base md:text-lg mb-4 md:mb-6 text-center">
       Đừng bỏ lỡ cơ hội sở hữu sản phẩm của chúng tôi
@@ -51,7 +51,7 @@ const Service = () => {
   </div>
 </div>
 
-      <div className=" grid grid-cols-2 md:grid-cols-4 gap-4 p-2 text-center mb-20 border ">
+      <div className=" grid grid-cols-2 md:grid-cols-4 gap-4 p-2 text-center mb-20 border">
         {services.map((service, index) => (
           <div key={index}>
             <div className="flex justify-center mb-4 p-4">
