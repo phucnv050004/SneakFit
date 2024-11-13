@@ -1,7 +1,4 @@
-import { TProduct } from "@/interfaces/TProduct";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import Slider from "react-slick";
 
 // Nút tùy chỉnh cho việc điều hướng Previous
@@ -32,20 +29,6 @@ function NextArrow(props: any) {
 }
 
 export default function RelatedProduct() {
-  const [products, setProducts] = useState<TProduct[]>([]);
-
-  const getProducts = async () => {
-    try {
-      const { data } = await axios.get("/products");
-      console.log(data);
-      setProducts(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getProducts();
-  }, []);
   var settings = {
     dots: true,
     infinite: true,
@@ -82,20 +65,62 @@ export default function RelatedProduct() {
     <div className="container mx-auto px-20 relative ">
       <h2 className="text-2xl font-bold mb-4">Sản phẩm khác</h2>
       <Slider {...settings}>
-        {products.map((product) => (
-           <div className="border p-2 rounded-lg shadow-md w-full max-w-xs h-80 mb-10">
-           <img
-             src={product.image}
-             alt="Product 1"
-             className="w-full h-48 object-cover mb-2"
-           />
-           <h3 className="text-sm font-semibold">
-             {product.title}
-           </h3>
-           <p className="text-red-500 text-lg font-bold">{product.price}₫</p>
-           <p className="text-gray-500 text-sm line-through">4,500,000₫</p>
-         </div>
-        ))}
+        <div className="border p-2 rounded-lg shadow-md w-full max-w-xs h-80 mb-10">
+          <img
+            src="https://product.hstatic.net/200000525917/product/air-jordan-1-mid-white-shadow-55_463d02eab3984bdbb5db82e414a067d0_9876d5096d4f4eb297acf6435e833702_master.png"
+            alt="Product 1"
+            className="w-full h-48 object-cover mb-2"
+          />
+          <h3 className="text-sm font-semibold">
+            Giày Adidas Forum Exhibit Mid 'Cream Pink' H01922
+          </h3>
+          <p className="text-red-500 text-lg font-bold">3,900,000₫</p>
+          <p className="text-gray-500 text-sm line-through">4,500,000₫</p>
+        </div>
+        <div className="border p-2 rounded-lg shadow-md w-full max-w-xs h-80 mb-10">
+          <img
+            src="https://product.hstatic.net/200000525917/product/898584_01.jpg_3fc1d70bb8844be8a4a1d72b2e301832_5fcdc3be2c4742f286444a59a1f548e4_master.png"
+            alt="Product 2"
+            className="w-full h-48 object-cover mb-2"
+          />
+          <h3 className="text-sm font-semibold">
+            Giày Adidas Forum Exhibit Mid 'Green White' H01921
+          </h3>
+          <p className="text-red-500 text-lg font-bold">390,000,000₫</p>
+        </div>
+        <div className="border p-2 rounded-lg shadow-md w-full max-w-xs h-80 mb-10">
+          <img
+            src="https://product.hstatic.net/200000525917/product/screenshot_2022.05.31_17.51.10.960_8d8bb764f1fe4a65b4461282c788e06c_bafa22c79d7e430a9bafa3bb92d7e22b_grande.png"
+            alt="Product 3"
+            className="w-full h-48 object-cover mb-2"
+          />
+          <h3 className="text-sm font-semibold">
+            Giày Adidas Forum Exhibit Mid 'White Halo Mint' GZ5388
+          </h3>
+          <p className="text-red-500 text-lg font-bold">390,000,000₫</p>
+        </div>
+        <div className="border p-2 rounded-lg shadow-md w-full max-w-xs h-80 mb-10">
+          <img
+            src="https://product.hstatic.net/200000525917/product/screenshot_2022.05.31_17.51.10.960_8d8bb764f1fe4a65b4461282c788e06c_bafa22c79d7e430a9bafa3bb92d7e22b_grande.png"
+            alt="Product 4"
+            className="w-full h-48 object-cover mb-2"
+          />
+          <h3 className="text-sm font-semibold">
+            Giày Adidas Forum Exhibit Mid GW8921
+          </h3>
+          <p className="text-red-500 text-lg font-bold">590,000,000₫</p>
+        </div>
+        <div className="border p-2 rounded-lg shadow-md w-full max-w-xs h-80 mb-10">
+          <img
+            src="https://product.hstatic.net/200000525917/product/screenshot_2022.05.31_17.51.10.960_8d8bb764f1fe4a65b4461282c788e06c_bafa22c79d7e430a9bafa3bb92d7e22b_grande.png"
+            alt="Product 5"
+            className="w-full h-48 object-cover mb-2"
+          />
+          <h3 className="text-sm font-semibold">
+            Giày Adidas Forum High 'Xiangi' H04236
+          </h3>
+          <p className="text-red-500 text-lg font-bold">2,900,000₫</p>
+        </div>
       </Slider>
     </div>
   );

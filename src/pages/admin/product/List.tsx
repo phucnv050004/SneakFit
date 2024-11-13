@@ -139,7 +139,7 @@ const AdminProductList = () => {
                 </Link>
                 <Stack
                     width={300}
-                    sx={{ marginLeft: "auto", marginBottom: "30px" }}
+                    sx={{ marginLeft: "750px", marginBottom: "30px" }}
                 >
                     <TextField
                         id="standard-basic"
@@ -182,7 +182,7 @@ const AdminProductList = () => {
                                     </TableCell>
                                     <TableCell>{product.description}</TableCell>
                                     <TableCell>
-                                        {product.category?.name}
+                                        {product.category.name}
                                     </TableCell>
                                     <TableCell>
                                         <Stack direction={"row"}>
